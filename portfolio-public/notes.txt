@@ -1,0 +1,7 @@
+
+* To start public page
+    systemctl --user start portfolio@1
+* Get status
+    systemctl --user status portfolio@1
+* Reload daemon after changes
+    systemctl --user daemon-reload

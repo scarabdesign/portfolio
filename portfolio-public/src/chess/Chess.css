@@ -1,0 +1,417 @@
+.board {
+    float: left;
+    width: 816px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.chessbody {
+    width: 1030px;
+    background: lightgray;
+    padding-left: 10px;
+    margin: 0 auto;
+}
+
+.boardrow {
+    height: 102px;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    display: inline-block;
+}
+
+.square.black {
+    background-color: rgb(119, 119, 119);
+}
+
+.square.white {
+    background-color: rgb(223, 223, 223);
+}
+
+.piece,
+.piecePreviewContainer {
+    position: absolute;
+}
+
+.deadpiece {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.piece .pieceIcon,
+.deadpiece .pieceIcon,
+.piecePreview .pieceIcon {
+    width: 100%;
+    height: 100%;
+}
+
+.piece {
+    width: 80px;
+    height: 80px;
+    margin: 10px 10px;
+}
+
+.piece.white .pieceIcon,
+.piecePreview.white .pieceIcon {
+    cursor: pointer;
+}
+
+.piece.white .pieceIcon,
+.deadpiece.white,
+.piecePreview.white .pieceIcon {
+    color: white;
+}
+
+.piece.white.ui-draggable-disabled .pieceIcon {
+    cursor: inherit !important;
+}
+
+.piece.black .pieceIcon,
+.deadpiece.black .pieceIcon {
+    color: black;
+}
+
+.tinypiece.white{
+    color: white;
+}
+
+.tinypiece.black{
+    color: black;
+}
+
+.tinypiece {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 100;
+}
+
+.tinypiece.attack::before {
+    content: "\2694";
+    font-size: 16px;
+    line-height: 10px;
+}
+
+.tinypiece.p::before {
+    content: "\f443";
+}
+
+.tinypiece.r::before, .tinypiece.promote.r::after {
+    content: "\f447";
+}
+
+.tinypiece.n::before, .tinypiece.promote.n::after {
+    content: "\f441";
+}
+
+.tinypiece.b::before, .tinypiece.promote.b::after {
+    content: "\f43a";
+}
+
+.tinypiece.k::before {
+    content: "\f43f";
+}
+
+.tinypiece.q::before, .tinypiece.promote.q::after {
+    content: "\f445";
+}
+
+.tinypiece.kingcastle::before {
+    content: "\f105";
+    font-family: 'FontAwesome';
+}
+
+.tinypiece.kingcastle::after {
+    content: "\f447";
+}
+
+.tinypiece.queencastle::before {
+    content: "\f053";
+    font-family: 'FontAwesome';
+}
+
+.tinypiece.queencastle::after {
+    content: "\f43f";
+}
+
+.tinypiece.check::before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+}
+
+.tinypiece.check.mate::before {
+    content: "\f560";
+}
+
+.tinypiece.promote::before {
+    content: "\f30c";
+    font-family: 'FontAwesome';
+}
+
+.hsquare {
+    padding: 0 1px;
+    border-radius: 2px;
+    font-weight: bold;
+    display: inline-block;
+    height: 12px;
+    line-height: 11px;
+    margin: 0 1px;
+}
+
+.hsquare.white {
+    background-color: white;
+    color: rgb(119, 119, 119);
+}
+
+.hsquare.black {
+    background-color: rgb(119, 119, 119);
+    color: rgb(223, 223, 223);
+}
+
+.piece.check::before {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 80px;
+    line-height: 100px;
+    text-align: center;
+    width: 100px;
+    color: lightgreen;
+}
+
+.piece.check.mate::before {
+    color: darkred;
+}
+
+.square.white.ui-droppable.highlight {
+    background-color: lightgreen;
+}
+
+.square.black.ui-droppable.highlight {
+    background-color: #83b283;
+}
+
+.square.nomoves::before,
+.square.danger::before {
+    position: absolute;
+    font-family: FontAwesome;
+    line-height: 100px;
+    text-align: center;
+    width: 100px;
+}
+
+.square.nomoves::before {
+    content: "\f05e";
+    font-size: 100px;
+}
+
+.square.danger::before {
+    content: "\f071";
+    color: red;
+    opacity: 0.2;
+    font-size: 80px;
+}
+
+.square.black.nomoves::before {
+    color: rgb(223, 223, 223);
+}
+
+.square.white.nomoves::before {
+    color: rgb(119, 119, 119);
+}
+
+.whitediscard,
+.blackdiscard {
+    float: left;
+    width: 41px;
+    height: 816px;
+    padding: 0 5px;
+    border-right: 1px solid black;
+}
+
+.chessheader {
+    height: 35px;
+    text-align: right;
+    width: 1030px;
+}
+
+.chessfooter {
+    height: 60px;
+    width: 1030px;
+    clear: both;
+}
+
+.hide {
+    display: none !important;
+}
+
+.bestmove_arrow {
+    color: yellow;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 2;
+    marker-end: url(#arrow);
+    position: absolute;
+}
+
+.piecePreview svg {
+    width: 45px !important;
+    height: 45px !important;
+    margin: 0;
+}
+
+.piecePreview {
+    width: 100px;
+    height: 100px;
+}
+
+.piecePreview>div {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 4px;
+}
+
+.piecePreviewContainer {
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+.piecePreview>div>svg:hover {
+    outline-style: solid;
+    outline-color: yellow;
+    cursor: pointer;
+}
+
+.whisperpanel {
+    width: 75%;
+    border-left: 1px solid black;
+    height: 40px;
+    margin: 0 auto;
+    border-right: 1px solid black;
+    background-image: linear-gradient(90deg, lightgray, white, white, white, white, white, lightgray);
+    text-align: center;
+    font-size: 10px;
+    overflow-x: scroll;
+}
+
+.whisperpanel::-webkit-scrollbar {
+    display: none;
+}
+
+.chessbuttons {
+    display: inline-block;
+    height: 35px;
+    margin-right: 110px;
+}
+
+.undoMove,
+.chessreset,
+.showBestButton,
+.autoPlay {
+    border: 0;
+    background: transparent;
+    font-size: 26px;
+    line-height: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.undoMove:hover,
+.chessreset:hover,
+.showBestButton:hover,
+.autoPlay:hover {
+    color: green;
+}
+
+.undoMove:active,
+.chessreset:active,
+.showBestButton:active,
+.autoPlay:active {
+    scale: 0.95;
+}
+
+.testbutton {
+    float: left;
+}
+
+.chessMessageContainer>div>div {
+    font-weight: bold;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: gray;
+    border-width: 2px;
+    border-style: solid;
+    pointer-events: none !important;
+}
+
+.turninfo {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 100px;
+}
+
+.turncounter {
+    min-width: 50px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    cursor: default;
+}
+
+.turnspinner {
+    font-size: 25px;
+}
+
+.spinnercontainer {
+    border-radius: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
+.spinnercontainer.white {
+    background-color: black;
+}
+
+.spinnercontainer.black {
+    background-color: white;
+}
+
+.spinnercontainer.white svg,
+.turnspinner.white {
+    color: white;
+}
+
+.spinnercontainer.black svg,
+.turnspinner.black {
+    color: black;
+}
+
+.turnindicator {
+    height: 35px;
+    vertical-align: middle;
+}
+
+.chesshistory {
+    float: left;
+    width: 100px;
+    height: 816px;
+    font-size: 12px;
+    overflow: hidden scroll;
+}
+
+.chesshistory::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chesshistory::-webkit-scrollbar-thumb {
+    background: darkgray;
+    display: none;
+}
+
+.chesshistory:hover::-webkit-scrollbar-thumb {
+    display: inherit;
+}

@@ -1,0 +1,177 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100% !important;
+  color: black;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 10px;
+}
+
+.resume {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.resume .header h2 {
+  line-height: 30px;
+  font-size: 36px;
+  margin: 10px 0 6px;
+}
+
+.resume .header .subtitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mycontact {
+  float: right;
+}
+
+.mycontact {
+  font-size: 18px;
+}
+
+.mycontact i {
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: baseline;
+  margin-right: 5px;
+  min-width: 15px;
+  text-align: center;
+}
+
+.mycontact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mycontact a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  clear: both;
+  padding-top: 20px;
+}
+
+.divider h3 {
+  margin: 0 80px 0 0;
+}
+
+.divider .line {
+  width: 100%;
+  border-top: 4px solid black;
+}
+
+.textstyle {
+  font-size: 20px;
+}
+
+.subdivider h4 {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.subdivider .thin_line {
+  border-top: 2px solid black;
+  width: 100%;
+}
+
+.subdivider .dates {
+  float: right;
+  margin-top: 2px;
+}
+
+.subline {
+  font-style: italic;
+}
+
+.subline .contact {
+  float: right;
+}
+
+.subline .contact a, .location a {
+  color: black;
+}
+
+.subline .contact a:hover, .location a:hover {
+  color: blue;
+}
+
+.sectionbody {
+  margin: 5px 0 20px 10px;
+}
+
+.sectionbody ul {
+  margin: 0;
+}
+
+.sectionbody li {
+  list-style-type: disclosure-closed;
+  margin: 5px 0 5px -20px;
+}
+
+.split_container > div{
+  width: 49%;
+}
+
+.split_container .right_pane {
+  float: right;
+}
+
+.split_container .left_pane {
+  float: left;
+}
+
+.page_break {
+  page-break-after: always;
+}
+
+.skill_type {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  width: 100%;
+  height: 12px;
+}
+
+.skill_type h5 {
+  margin: 0;
+  background: white;
+  display: inline-block;
+  font-weight: normal;
+}
+
+.point_item_list {
+  float: right;
+}
+
+.point_item {
+  margin: 0 10px;
+}
+
+.point_item_list i {
+  color: lightgray;
+  margin-right: 2px;
+}
+
+.point_item_list i.strong {
+  color: black;
+}
+
+.footer {
+  height: 500px;
+}
+
+@media print {
+  a {
+    text-decoration: none !important;
+  } 
+}
