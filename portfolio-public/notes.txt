@@ -1,7 +1,17 @@
 
+
+
 * To start public page
     systemctl --user start portfolio@1
+    systemctl --user start portfolioapi@1
 * Get status
     systemctl --user status portfolio@1
+    systemctl --user status portfolioapi@1
 * Reload daemon after changes
     systemctl --user daemon-reload
+
+
+* To add another service
+    vim ~/.config/systemd/user/name@1.service
+    systemctl --user enable name@1
+

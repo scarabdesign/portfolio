@@ -317,6 +317,44 @@ function PromotionPreview() {
     );
 }
 
+var aboutShown = true;
+var aboutSeen = false;
+var aboutPanel = <div className="aboutPanel" >
+    <div>
+        <div className="innerAboutPanel">
+            <div className="infocloser fa-solid fa-circle-xmark" ></div>
+            <h3>Simple Chess!</h3>
+            <p>This app was developed in ~4 days in React 18 with Vite and a NestJS API. 
+            A WebSocket is used for all requests. The chess AI is a Stockfish binary 
+            and the game rules are tracked with chess.js. The icons are all from 
+            Font Awesome (Free).</p>
+        </div>
+    </div>
+</div>;
+
+function AboutInit(){
+    if(!aboutSeen){
+        aboutSeen = true;
+        About();
+    }
+}
+
+function About(){
+    aboutShown = !aboutShown;
+    $(".chessMessageContainer")
+        .empty()
+        .append(
+            aboutShown ? "" : ReactDOMServer.renderToString(aboutPanel)
+        );
+    if(!aboutShown){
+        $(".chessMessageContainer .infocloser")
+            .on("click", About);
+    } else {
+        $(".chessMessageContainer .infocloser")
+            .off("click", About);
+    }
+}
+
 function TurnHeader(){
     return (
         <div className="turninfo">
@@ -325,6 +363,7 @@ function TurnHeader(){
                 /
                 <span title="Fullmove Count">{moveCount}</span>
             </span>
+            <span className="infobutton fa-solid fa-question" onClick={About}></span>
             <span className="turnindicator" >
                 <span className="fa-layers fa-fw fa-lg spinnercontainer white hide">
                     <FontAwesomeIcon icon={InterfaceIcons.whitebrain} fixedWidth transform="shrink-5" />
@@ -411,30 +450,33 @@ var overSquare = "";
 var isDragging = false;
 function SetUpDrag() {
 
-    $(".piece").draggable({
-        revert: "invalid",
-        grid: [(DefaultSqareDim + DefaultBorderWidth), (DefaultSqareDim + DefaultBorderWidth)],
-        drag: function () {
-            isDragging = true;
-        },
-        stop: function () {
-            isDragging = false;
-        }
-    });
+    $(".piece")
+        .draggable({
+            revert: "invalid",
+            grid: [(DefaultSqareDim + DefaultBorderWidth), (DefaultSqareDim + DefaultBorderWidth)],
+            drag: function () {
+                isDragging = true;
+            },
+            stop: function () {
+                isDragging = false;
+            }
+        });
 
+    var isClick = false;
     $(".board")
         .off("mouseleave")
         .on("mouseleave", () => {
-            ClearBoardStyles();
-        })
+            !isClick && ClearBoardStyles();
+        });
 
     $(".square")
-        .off("mouseover").off("mouseleave")
-        .on("mouseover", function () {
+        .off("mouseup").off("mouseover").off("mouseleave")
+        .on("mouseup mouseover", function (e) {
             if (isDragging) return;
             if (!$(this).find(".piece.white").length) {
                 return;
             }
+            isClick = e.type == "mouseup";
             var row = $(this).attr("data-row") || "";
             var column = $(this).attr("data-column") || "";
             if (row && column) {
@@ -442,14 +484,14 @@ function SetUpDrag() {
                 if (os == overSquare) {
                     return;
                 }
-                ClearBoardStyles();
+                !isClick && ClearBoardStyles();
                 overSquare = os;
                 GetMoves(overSquare);
             }
         })
-        .on("mouseleave", () => {
+        .on("mouseleave", (e) => {
             if (isDragging) return;
-            ClearBoardStyles();
+            !isClick && ClearBoardStyles();
         })
         .droppable({
             drop: function (event, ui) {
@@ -547,7 +589,7 @@ function ProcessWhiteMove(attacking: JQuery<Element>, move: string, piece: strin
             .addClass("piecePreviewContainer")
             .find(".piecePreview > div")
             .on("click", function(){
-                move += $(this).attr("data-piece");
+                move += GetSymbol($(this));
                 _finally();
             });
         AnimateDead(toSquare, Discard());
@@ -585,7 +627,7 @@ function AnimateDead(toSq: string, targetDiscard: string, callback?: Function) {
             "width": DefaultDeadPieceDim,
             "height": DefaultDeadPieceDim,
         }
-        var targetSymb = targetPiece && ($(targetPiece).attr("data-piece") || "");
+        var targetSymb = targetPiece && (GetSymbol(targetPiece) || "");
         var deadPiece = $(ReactDOMServer.renderToString(Piece(targetSymb, true))).css(deadStart);
         if (deadPiece) {
             var animationComplete = () => {
@@ -746,7 +788,7 @@ function KillAnimation(){
 function ResetGame() {
     AutoPlayOff();
     KillAnimation();
-    $(".piece[data-piece='K']").removeClass("check").removeClass("mate");
+    ShowHideCheck(false, "white", false, false);
     socket.emit(ChessClearRequest, {
         playerid
     })
@@ -792,6 +834,15 @@ function SetGlobals(response: ChessResponse){
     bestmove = response.bestmove ?? "";
 }
 
+function ShowHideCheck(check: boolean, color: string, mate: boolean, stale: boolean){
+    $(".piece[data-piece='" + (color == "w" ? "K" : "k") + "']" + 
+        (stale ? ",.piece[data-piece='" + (color == "w" ? "k" : "K") + "']" : ""))
+        .addClass(check ? "check" : "")
+        .removeClass(check ? "" : "check")
+        .addClass(check && mate ? "mate" : "")
+        .removeClass(check && mate ? "" : "mate");
+}
+
 function ParseChessResponse(response: ChessResponse) {
     SetGlobals(response);
     ShowHideSpinner(false);
@@ -799,13 +850,13 @@ function ParseChessResponse(response: ChessResponse) {
         Refresh();
 
         if(isStale){
-            $(".piece[data-piece='K'],.piece[data-piece='k']").addClass("check mate");
+            ShowHideCheck(true, "white", true, true);
             ShowMessage("Stalemate!")
             QueueWhisper("- Stalemate -", "red");
         }
     
         if(nePieces){
-            $(".piece[data-piece='K'],.piece[data-piece='k']").addClass("check mate");
+            ShowHideCheck(true, "white", true, true);
             ShowMessage("Insufficient material!")
             QueueWhisper("- Insufficient material -", "red");
         }
@@ -819,7 +870,7 @@ function ParseChessResponse(response: ChessResponse) {
         }
 
         if(isDraw){
-            $(".piece[data-piece='K'],.piece[data-piece='k']").addClass("check mate");
+            ShowHideCheck(true, "white", true, true);
             ShowMessage("Draw!")
             QueueWhisper("- Draw -", "red");
         }
@@ -906,6 +957,7 @@ function DisableDrag(){
 function DisableMouseOver() {
     $(".square")
         .off("mouseover")
+        .off("mouseup")
         .off("mouseleave");
 }
 
@@ -923,6 +975,7 @@ var TearDown = () => {
 var Init = () => {
     toast.dismiss();
     SetUpSocketListeners();
+    setTimeout(AboutInit, 500);
 };
 
 $(Init);
@@ -1036,7 +1089,7 @@ function ShowBestMove(onOff: boolean = true) {
 function Tester() {
     //LockBoard();
     //ShowMessage("testing 123");
-    SetBoard("rnbqkbnr/ppp1pppp/8/8/P1Pp4/8/1P1PPPPP/RNBQKBNR b KQkq c3 0 3");
+    //SetBoard("rnbqkbnr/ppp1pppp/8/8/P1Pp4/8/1P1PPPPP/RNBQKBNR b KQkq c3 0 3");
 }
 
 function Chess() {

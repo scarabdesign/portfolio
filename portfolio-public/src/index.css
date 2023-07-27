@@ -8,10 +8,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
 }
 
 body {
   margin: 10px;
+  user-select: initial;
 }
 
 .resume {
@@ -74,6 +78,10 @@ body {
   font-size: 20px;
 }
 
+.subdivider {
+  clear: both;
+}
+
 .subdivider h4 {
   margin: 10px 0 0 0;
   font-size: 18px;
@@ -98,11 +106,13 @@ body {
   float: right;
 }
 
-.subline .contact a, .location a {
+.subline .contact a,
+.location a {
   color: black;
 }
 
-.subline .contact a:hover, .location a:hover {
+.subline .contact a:hover,
+.location a:hover {
   color: blue;
 }
 
@@ -119,8 +129,23 @@ body {
   margin: 5px 0 5px -20px;
 }
 
-.split_container > div{
+.split_container>div {
   width: 49%;
+}
+
+.threeway_split_container .right_pane {
+  width: 32%;
+  float: right;
+}
+
+.threeway_split_container .left_pane {
+  width: 32%;
+  float: left;
+}
+
+.threeway_split_container .right_two_panes {
+  width: 64%;
+  float: right;
 }
 
 .split_container .right_pane {
@@ -170,8 +195,68 @@ body {
   height: 500px;
 }
 
+.menucontrol {
+  width: 850px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.printbutton {
+  margin-left: 10px;
+}
+
+.menubutton:active, .printbutton:active {
+  scale: 0.95;
+}
+
+.menubutton {
+  color: blue;
+  border: 1px solid gray;
+  padding: 3px 3px 3px 4px;
+  border-radius: 3px;
+  text-align: right;
+}
+
+.menudropdown {
+  width: 0;
+  float: right;
+}
+
+.menupanel {
+  position: absolute;
+  top: 40px;
+  border: 1px solid gray;
+  margin-left: -212px;
+  width: 200px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 3px 3px 3px 0px;
+  text-align: left;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menulink {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.menupanel > div:hover {
+  background-color: aquamarine;
+}
+
+.inline_video {
+  display: inline;
+}
+
 @media print {
   a {
     text-decoration: none !important;
-  } 
+  }
+
+  .menucontrol {
+    display: none;
+  }
 }

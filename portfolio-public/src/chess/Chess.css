@@ -76,11 +76,11 @@
     color: black;
 }
 
-.tinypiece.white{
+.tinypiece.white {
     color: white;
 }
 
-.tinypiece.black{
+.tinypiece.black {
     color: black;
 }
 
@@ -99,15 +99,18 @@
     content: "\f443";
 }
 
-.tinypiece.r::before, .tinypiece.promote.r::after {
+.tinypiece.r::before,
+.tinypiece.promote.r::after {
     content: "\f447";
 }
 
-.tinypiece.n::before, .tinypiece.promote.n::after {
+.tinypiece.n::before,
+.tinypiece.promote.n::after {
     content: "\f441";
 }
 
-.tinypiece.b::before, .tinypiece.promote.b::after {
+.tinypiece.b::before,
+.tinypiece.promote.b::after {
     content: "\f43a";
 }
 
@@ -115,7 +118,8 @@
     content: "\f43f";
 }
 
-.tinypiece.q::before, .tinypiece.promote.q::after {
+.tinypiece.q::before,
+.tinypiece.promote.q::after {
     content: "\f445";
 }
 
@@ -326,6 +330,12 @@
     color: green;
 }
 
+.infobutton:hover {
+    background-color: green;
+}
+
+.infocloser:active,
+.infobutton:active,
 .undoMove:active,
 .chessreset:active,
 .showBestButton:active,
@@ -345,6 +355,7 @@
     border-width: 2px;
     border-style: solid;
     pointer-events: none !important;
+    border-radius: 20px;
 }
 
 .turninfo {
@@ -414,4 +425,38 @@
 
 .chesshistory:hover::-webkit-scrollbar-thumb {
     display: inherit;
+}
+
+.infobutton {
+    border-radius: 12px;
+    background: black;
+    color: white;
+    padding: 3px 6px;
+}
+
+.aboutPanel {
+    display: flex;
+    position: relative;
+    transition: all 230ms cubic-bezier(0.21, 1.02, 0.73, 1) 0s;
+    transform: translateY(0px);
+    max-width: 800px;
+    margin: -180px auto 0;
+}
+
+.aboutPanel > div {
+    animation: 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) 0s 1 normal forwards running none
+}
+
+.innerAboutPanel {
+    padding: 10px;
+    min-height: 430px;
+}
+
+.innerAboutPanel h3{
+    text-align: center;
+}
+
+.infocloser {
+    float: right;
+    pointer-events: all;
 }

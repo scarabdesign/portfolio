@@ -92,7 +92,8 @@ function Contact(){
         <div><i className="fa-solid fa-at"></i> <a href="mailto:scarabdesign@gmail.com">scarabdesign@gmail.com</a></div>
         <div><i className="fa-solid fa-phone"></i> <a href="tel:5415050723">(541) 505-0723</a></div>
         <div><i className="fa-solid fa-location-dot"></i> <span>Eugene, OR</span></div>
-        <div><i className="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/sean-hankins">linkedin.com/in/sean-hankins</a></div>
+        <div><i className="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/sean-hankins" target="_blank" >linkedin.com/in/sean-hankins</a></div>
+        <div><i className="fa-brands fa-github"></i> <a href="https://github.com/scarabdesign" target="_blank" >github.com/scarabdesign</a></div>
       </div>
   );
 }
@@ -115,8 +116,8 @@ function Skills(){
             <PointItem title="jQuery" good={5} />
             <PointItem title="Node.js / Express.js" good={4} />
             <PointItem title="ASP.NET" good={4} />
-            <PointItem title="React / Vite" good={2} />
-            <PointItem title="Nestjs" good={2} />
+            <PointItem title="React / Vite" good={3} />
+            <PointItem title="NestJS" good={3} />
           <SmallSubDivider title="storage" />
             <PointItem title="PostgreSQL" good={4} />
             <PointItem title="SQLite" good={4} />
@@ -124,6 +125,7 @@ function Skills(){
             <PointItem title="Redis" good={3} />
             <PointItem title="Azure" good={3} />
             <PointItem title="AWS" good={2} />
+	    <PointItem title="MongoDB" good={2} />
           <SmallSubDivider title="os" />
             <PointItem title="Linux" good={4} />
             <PointItem title="Windows" good={4} />
@@ -133,7 +135,7 @@ function Skills(){
           <SmallSubDivider title="languages" />
             <PointItem title="JavaScript" good={5} />
             <PointItem title="HTML & CSS" good={5} />
-            <PointItem title="C#" good={4} />
+            <PointItem title="C# and .NET" good={5} />
             <PointItem title="Objective C" good={4} />
             <PointItem title="ODB2" good={3} />
             <PointItem title="Java" good={3} />
@@ -141,8 +143,8 @@ function Skills(){
             <PointItem title="Python" good={2} />
             <PointItem title="Golang" good={2} />
           <SmallSubDivider title="tools" />
-            <PointItem title="Visual Studio" good={4} />
-            <PointItem title="VS Code" good={3} />
+            <PointItem title="Visual Studio" good={5} />
+            <PointItem title="VS Code" good={4} />
             <PointItem title="Eclipse" good={3} />
             <PointItem title="Photoshop" good={3} />
             <PointItem title="Git / Mercurial" good={3} />
@@ -157,14 +159,14 @@ function Body(){
     <div className="body">
         <Section name="objective">
           <span className="textstyle">
-            Seeking a challenging position in a progressive environment where I can utilize and enhance my skills as a computer programmer / application designer.
+            Seeking a challenging position in a progressive environment where I can utilize and enhance my skills as a computer programmer / application designer individually or in a team environment.
           </span>
         </Section>
         <Section name="experience">
           <SubDivider 
             title="Lead Full Stack Application Developer" 
-            dates="Mar 2020 ~ Present"
-            location="Perpetua Technologies LLC"
+            dates="Mar 2019 ~ Present"
+            location="Perpetua Technologies, LLC"
             link="https://www.enroutepro.com/app-features"
             contact="5412552519">
               <span>Responsible for design, coding and maintenance of:</span>
@@ -172,7 +174,7 @@ function Body(){
                 <li>A suite of mobile applications (Android/iOS/Windows) to support fire fighters and first-responders in the field</li>
                 <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking</li>
                 <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies</li>
-                <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization</li>
+                <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization </li>
               </ul>
           </SubDivider>
           <SubDivider 
@@ -183,7 +185,7 @@ function Body(){
             contact="5413434281">
               <span>Responsible for design, coding and maintenance of:</span>
               <ul>
-                <li>Complex web application interfaces focusing on big data visualisation and IoT</li>
+                <li>Complex web application interfaces focusing on big data visualization and IoT</li>
                 <li>A multi-platform mobile application that communicates to vehicles with OBD2 and tracks location</li>
                 <li>Complex web application interfaces and API focusing on voter data, walking list creation and data analytics</li>
                 <li>iOS applications used to view, gather, map and synchronize data with system servers while mobile</li>
