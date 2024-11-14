@@ -122,9 +122,9 @@ function Skills(){
             <PointItem title="PostgreSQL" good={4} />
             <PointItem title="SQLite" good={4} />
             <PointItem title="MySQL" good={4} />
+            <PointItem title="AWS" good={3} />
             <PointItem title="Redis" good={3} />
             <PointItem title="Azure" good={3} />
-            <PointItem title="AWS" good={2} />
 	    <PointItem title="MongoDB" good={2} />
           <SmallSubDivider title="os" />
             <PointItem title="Linux" good={4} />
@@ -133,9 +133,9 @@ function Skills(){
         </div>
         <div className="left_pane">
           <SmallSubDivider title="languages" />
+            <PointItem title="C# and .NET" good={5} />
             <PointItem title="JavaScript" good={5} />
             <PointItem title="HTML & CSS" good={5} />
-            <PointItem title="C# and .NET" good={5} />
             <PointItem title="Objective C" good={4} />
             <PointItem title="ODB2" good={3} />
             <PointItem title="Java" good={3} />
@@ -144,9 +144,11 @@ function Skills(){
             <PointItem title="Golang" good={2} />
           <SmallSubDivider title="tools" />
             <PointItem title="Visual Studio" good={5} />
+            <PointItem title="JetBrains Rider" good={5} />
             <PointItem title="VS Code" good={4} />
             <PointItem title="Eclipse" good={3} />
             <PointItem title="Photoshop" good={3} />
+            <PointItem title="Jira / Confluence" good={3} />
             <PointItem title="Git / Mercurial" good={3} />
         </div>
       </div>
@@ -163,9 +165,22 @@ function Body(){
           </span>
         </Section>
         <Section name="experience">
+        <SubDivider 
+            title="Senior Software Engineer" 
+            dates="Dec 2023 ~ Nov 2024"
+            location="Twenty Ideas"
+            link="https://twentyideas.com/"
+            >
+              <span>Part of a large team of developers designing and coding a software distribution platform, responsible for:</span>
+              <ul>
+                <li>Back-end development in C# .NET and MSSQL Database with Front-end development in React</li>
+                <li>Amazon (AWS) storage and lambdas</li>
+                <li>Design, implementation, and documentation</li>
+              </ul>
+          </SubDivider>
           <SubDivider 
             title="Lead Full Stack Application Developer" 
-            dates="Mar 2019 ~ Present"
+            dates="Mar 2019 ~ Dec 2023"
             location="Perpetua Technologies, LLC"
             link="https://www.enroutepro.com/app-features"
             contact="5412552519">
@@ -189,7 +204,6 @@ function Body(){
                 <li>A multi-platform mobile application that communicates to vehicles with OBD2 and tracks location</li>
                 <li>Complex web application interfaces and API focusing on voter data, walking list creation and data analytics</li>
                 <li>iOS applications used to view, gather, map and synchronize data with system servers while mobile</li>
-                <li>Extensive on-line book, music and movie sales marketplace web site</li>
               </ul>
             </SubDivider>
             <div className="page_break" />

@@ -39,7 +39,7 @@ body {
 }
 
 .mycontact {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .mycontact i {
@@ -62,7 +62,7 @@ body {
 
 .divider {
   clear: both;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 .divider h3 {
@@ -75,7 +75,7 @@ body {
 }
 
 .textstyle {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .subdivider {
@@ -83,7 +83,7 @@ body {
 }
 
 .subdivider h4 {
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
   font-size: 18px;
   font-weight: normal;
 }
@@ -117,7 +117,7 @@ body {
 }
 
 .sectionbody {
-  margin: 5px 0 20px 10px;
+  margin: 5px 0 10px 10px;
 }
 
 .sectionbody ul {

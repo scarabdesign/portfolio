@@ -65,12 +65,12 @@ export default function Samples() {
                 <div className="threeway_split_container">
                     <div className="right_pane">
                         <video width="240" height="533" controls className="inline_video">
-                            <source src="./public/resources/ViandsDemo2Compressed.mp4" type="video/mp4"/>
+                            <source src="./resources/ViandsDemo2Compressed.mp4" type="video/mp4"/>
                         </video>
                     </div>
                     <div className="right_pane">
                         <video width="240" height="533" controls className="inline_video">
-                            <source src="./public/resources/ViandsDemoCompressed.mp4" type="video/mp4"/>
+                            <source src="./resources/ViandsDemoCompressed.mp4" type="video/mp4"/>
                         </video>
                     </div>
                     <div className="left_pane">
@@ -82,7 +82,7 @@ export default function Samples() {
             <SubDivider title="Chess" location="pointlesswaste.com/chess" link="http://www.pointlesswaste.com/chess">
                 <div className="threeway_split_container">
                     <div className="right_two_panes">
-                        <img src="/public/resources/ChessScreen.png" width="510" />
+                        <img src="/resources/ChessScreen.png" width="510" />
                     </div>
                     <div className="left_pane">
                         <p>This is a simple chess applications coded in React 18 with Vite and a NestJS API. I'm using a WebSocket to communicate with the chess AI Stockfish.</p>
@@ -96,7 +96,7 @@ export default function Samples() {
                 <div className="threeway_split_container">
                     <div className="right_two_panes">
                         <video width="645" height="359" controls>
-                            <source src="./public/resources/FireAnimation.mp4" type="video/mp4"/>
+                            <source src="./resources/FireAnimation.mp4" type="video/mp4"/>
                         </video>
                     </div>
                     <div className="left_pane">

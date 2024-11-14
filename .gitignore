@@ -1,1 +1,4 @@
+.gitignore
 **/node_modules
+portfolio-api/.eslintrc.js
+portfolio.code-workspace
