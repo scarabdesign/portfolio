@@ -330,7 +330,7 @@ function OnChessSetBoardRequest(request, socket) {
         console.log(e);
     }
 }
-let SocketFish = exports.SocketFish = class SocketFish {
+let SocketFish = class SocketFish {
     onModuleInit() {
         this.server.on('connection', ServerConnect);
     }
@@ -350,6 +350,7 @@ let SocketFish = exports.SocketFish = class SocketFish {
         OnChessSetBoardRequest(request, socket);
     }
 };
+exports.SocketFish = SocketFish;
 __decorate([
     (0, websockets_1.WebSocketServer)(),
     __metadata("design:type", socket_io_1.Server)
