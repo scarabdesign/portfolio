@@ -19,16 +19,17 @@ function toggleMenu(){
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <div className="menucontrol">
-      <a href="http://www.pointlesswaste.com/samples" style={{ fontSize: 12 }} >View samples!</a>&nbsp;
-      <div className="menubutton fa-solid fa-bars" onClick={toggleMenu} />
+      <a href="http://seanhankins.com/samples" style={{ fontSize: 12 }} >View samples!</a>&nbsp;
       <div className="printbutton fa-solid fa-print" onClick={() => { window.print() }} />
+      <div className="downloadbutton fa-solid fa-download" onClick={() => { window.open("Resume_Sean_Hankins.pdf") }} />
+      <div className="menubutton fa-solid fa-bars" onClick={toggleMenu} />
       <div className="menudropdown hide">
         <div className="menupanel">
-          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://www.pointlesswaste.com">Résumé</a></div>
-          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://www.pointlesswaste.com/chess">Chess (React/Vite/NestJS)</a></div>
+          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://seanhankins.com">Résumé</a></div>
+          {/*<div onClick={toggleMenu}><a className="menulink" target="_top" href="http://www.seanhankins.com/chess">Chess (React/Vite/NestJS)</a></div>*/}
           <div onClick={toggleMenu}><a className="menulink" target="_blank" href="https://github.com/scarabdesign">GitHub</a></div>
           <div onClick={toggleMenu}><a className="menulink" target="_blank" href="https://www.linkedin.com/in/sean-hankins/">LinkedIn</a></div>
-          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://www.pointlesswaste.com/samples">Sample Porfolio</a></div>
+          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://seanhankins.com/samples">Sample Porfolio</a></div>
         </div>
       </div>
     </div>

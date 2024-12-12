@@ -79,6 +79,7 @@ export default function Samples() {
                     </div>
                 </div>
             </SubDivider>
+            {/*
             <SubDivider title="Chess" location="pointlesswaste.com/chess" link="http://www.pointlesswaste.com/chess">
                 <div className="threeway_split_container">
                     <div className="right_two_panes">
@@ -90,6 +91,7 @@ export default function Samples() {
                     </div>
                 </div>
             </SubDivider>
+            */}
         </Section>
         <Section name={"Perpetua Technologies, LLC"} >
             <SubDivider title="Active Fire Animations" location="enroutepro.com" link="https://www.enroutepro.com/">

@@ -813,7 +813,9 @@ function HighlightBestMove(bestmove?: string) {
 }
 
 function ShowMessage(message: string){
-    return toast(message);
+    return toast(message, {
+        duration: 4000,
+    });
 }
 
 function AutoMove(move: string){

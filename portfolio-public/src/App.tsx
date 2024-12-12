@@ -137,7 +137,7 @@ function Skills(){
             <PointItem title="JavaScript" good={5} />
             <PointItem title="HTML & CSS" good={5} />
             <PointItem title="Objective C" good={4} />
-            <PointItem title="ODB2" good={3} />
+            <PointItem title="OBD2" good={3} />
             <PointItem title="Java" good={3} />
             <PointItem title="PHP" good={3} />
             <PointItem title="Python" good={2} />
@@ -161,13 +161,14 @@ function Body(){
     <div className="body">
         <Section name="objective">
           <span className="textstyle">
-            Seeking a challenging position in a progressive environment where I can utilize and enhance my skills as a computer programmer / application designer individually or in a team environment.
+            Seeking a challenging position in a progressive environment where I can utilize and enhance my skills as a computer programmer / application designer 
+            individually or in a team environment.
           </span>
         </Section>
         <Section name="experience">
         <SubDivider 
             title="Senior Software Engineer" 
-            dates="Dec 2023 ~ Nov 2024"
+            dates="Nov 2023 ~ Nov 2024"
             location="Twenty Ideas"
             link="https://twentyideas.com/"
             >
@@ -175,21 +176,21 @@ function Body(){
               <ul>
                 <li>Back-end development in C# .NET and MSSQL Database with Front-end development in React</li>
                 <li>Amazon (AWS) storage and lambdas</li>
-                <li>Design, implementation, and documentation</li>
+                <li>Design, implementation, testing and documentation</li>
               </ul>
           </SubDivider>
           <SubDivider 
             title="Lead Full Stack Application Developer" 
-            dates="Mar 2019 ~ Dec 2023"
+            dates="Mar 2019 ~ Nov 2023"
             location="Perpetua Technologies, LLC"
             link="https://www.enroutepro.com/app-features"
             contact="5412552519">
               <span>Responsible for design, coding and maintenance of:</span>
               <ul>
-                <li>A suite of mobile applications (Android/iOS/Windows) to support fire fighters and first-responders in the field</li>
-                <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking</li>
-                <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies</li>
-                <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization </li>
+                <li>A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin: Android/iOS/Windows)</li>
+                <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)</li>
+                <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)</li>
+                <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)</li>
               </ul>
           </SubDivider>
           <SubDivider 
@@ -200,10 +201,10 @@ function Body(){
             contact="5413434281">
               <span>Responsible for design, coding and maintenance of:</span>
               <ul>
-                <li>Complex web application interfaces focusing on big data visualization and IoT</li>
-                <li>A multi-platform mobile application that communicates to vehicles with OBD2 and tracks location</li>
-                <li>Complex web application interfaces and API focusing on voter data, walking list creation and data analytics</li>
-                <li>iOS applications used to view, gather, map and synchronize data with system servers while mobile</li>
+                <li>Complex web application interfaces focusing on big data visualization and IoT (JavaScript, HTML, Node.js, Bing Maps, Google Maps, OpenStreetMap)</li>
+                <li>A multi-platform mobile application that communicates to vehicles with OBD2 and tracks location (Python, Node.js)</li>
+                <li>Complex web application interfaces and API focusing on voter data, walking list creation and data analytics (JavaScript/JQuery)</li>
+                <li>iOS applications used to view, gather, map and synchronize data with system servers while mobile (Objective C)</li>
               </ul>
             </SubDivider>
             <div className="page_break" />
@@ -215,10 +216,10 @@ function Body(){
                     location="Scarab Design"
                   >
                   <ul>
-                    <li>LeadFoot Logistics: User and admin managed application</li>
-                    <li>Everyone Orchestra: Design, coding, maintaining</li>
-                    <li>Vision for Intact Ecosystems & Watersheds: Design, coding, maintaining</li>
-                    <li>Rainbow Garden School: Design, coding, maintaining</li>
+                    <li>LeadFoot Logistics: User and admin management application</li>
+                    <li>Everyone Orchestra: Design, coding, maintaining web presence</li>
+                    <li>Vision for Intact Ecosystems & Watersheds: Design, coding, maintaining web presence</li>
+                    <li>Rainbow Garden School: Design, coding, maintaining web presence</li>
                     <li>Construction News Net: Shopping Cart system, with user and admin management</li>
                   </ul>
                 </SubDivider>
