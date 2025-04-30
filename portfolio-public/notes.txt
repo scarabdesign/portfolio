@@ -1,5 +1,9 @@
 
-
+* Manual start:
+    cd portfolio-api
+    npm start
+    cd portfolio-public
+    npm run dev
 
 * To start public page
     systemctl --user start portfolio@1
@@ -15,3 +19,18 @@
     vim ~/.config/systemd/user/name@1.service
     systemctl --user enable name@1
 
+* After updating Node, open up to run on port 80
+    sudo setcap cap_net_bind_service=+ep $(which node)
+
+* To rebuild Docker images:
+    docker build -t portfolio-api ~/Projects/portfolio/portfolio-api
+    docker build -t portfolio-public ~/Projects/portfolio/portfolio-public
+
+* Create k8 pods/services
+    kubectl create -f portfolio-api-pod.yaml
+    kubectl create -f portfolio-public-pod.yaml
+
+* Other k8 commands
+    kubectl get pods,svc -o wide
+    kubectl describe pod portfolio-api
+    kubectl describe pod portfolio-public

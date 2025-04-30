@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <div className="menudropdown hide">
         <div className="menupanel">
           <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://seanhankins.com">Résumé</a></div>
-          {/*<div onClick={toggleMenu}><a className="menulink" target="_top" href="http://www.seanhankins.com/chess">Chess (React/Vite/NestJS)</a></div>*/}
+          <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://seanhankins.com/chess">Chess (React/Vite/NestJS)</a></div>
           <div onClick={toggleMenu}><a className="menulink" target="_blank" href="https://github.com/scarabdesign">GitHub</a></div>
           <div onClick={toggleMenu}><a className="menulink" target="_blank" href="https://www.linkedin.com/in/sean-hankins/">LinkedIn</a></div>
           <div onClick={toggleMenu}><a className="menulink" target="_top" href="http://seanhankins.com/samples">Sample Porfolio</a></div>
