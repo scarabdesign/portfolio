@@ -11,16 +11,21 @@
 * Get status
     systemctl --user status portfolio@1
     systemctl --user status portfolioapi@1
+* View logs
+    journalctl --user-unit portfolio@1
+    journalctl --user-unit portfolioapi@1
+
 * Reload daemon after changes
     systemctl --user daemon-reload
-
 
 * To add another service
     vim ~/.config/systemd/user/name@1.service
     systemctl --user enable name@1
 
 * After updating Node, open up to run on port 80
-    sudo setcap cap_net_bind_service=+ep $(which node)
+        > sudo setcap cap_net_bind_service=+ep $(which node)
+    Update node link
+        > sudo ln $(which node) /usr/bin/node
 
 * To rebuild Docker images:
     docker build -t portfolio-api ~/Projects/portfolio/portfolio-api

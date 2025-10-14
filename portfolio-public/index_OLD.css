@@ -10,7 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none; 
+  user-select: none;
 }
 
 body {
@@ -214,7 +214,8 @@ body {
   margin-right: 10px;
 }
 
-.menubutton:active, .printbutton:active {
+.menubutton:active,
+.printbutton:active {
   scale: 0.95;
 }
 
@@ -252,7 +253,7 @@ body {
   color: black;
 }
 
-.menupanel > div:hover {
+.menupanel>div:hover {
   background-color: aquamarine;
 }
 

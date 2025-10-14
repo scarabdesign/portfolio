@@ -4,7 +4,7 @@ import './Chess.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import toast, { Toaster } from 'react-hot-toast';
 import uuid from 'react-uuid';
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useState, useEffect } from 'react';
 import ReactDOMServer from "react-dom/server";
 // @ts-ignore 
 import arrowLine from 'arrow-line'
@@ -413,10 +413,19 @@ function ChessBody(){
     return (
         <div className="chessbody">
             <Toaster 
-                containerClassName="chessMessageContainer"
+                containerStyle={{
+                    position: 'relative',
+                    top: 400,
+                }}
                 position="bottom-center" 
                 reverseOrder={false}
+                toastOptions={{
+                    style: {
+                        zIndex: 9999,
+                    },
+                }}
             />
+            <div className="chessMessageContainer" />
             <div className="chessheader">
                 <ButtonHeader />
                 <TurnHeader />
@@ -1096,19 +1105,27 @@ function Tester() {
 
 function Chess() {
     const [load, reload] = useState(new Date().getTime());
+    
+    useEffect(() => {
+        // Reinitialize drag/drop after component renders
+        setTimeout(() => {
+            if (turn == "w" && !autoMoveEnabled && !isGameOver) {
+                SetUpDrag();
+            }
+        }, 100);
+    }, [load]); // Runs when load state changes (i.e., when Refresh is called)
+    
     Refresh = function () {
         reload(new Date().getTime());
-        setTimeout(() => {
-            (turn == "w" && !autoMoveEnabled && !isGameOver) && SetUpDrag();
-        }, 0);
     }
-    $(".chessMessageContainer")
-        .css({
-            position: "absolute",
-            zIndex: 9999,
-            inset: "43% 0",
-            pointerEvents: "none",
-        });
+    
+    // $(".chessMessageContainer")
+    //     .css({
+    //         position: "absolute",
+    //         zIndex: 9999,
+    //         inset: "43% 0",
+    //         pointerEvents: "none",
+    //     });
     return (
         <ChessBody />
     );

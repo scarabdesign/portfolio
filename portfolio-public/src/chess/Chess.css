@@ -1,6 +1,12 @@
+.chessMessageContainer {
+    position: absolute;
+    z-index: 9999;
+    inset: 43% 0;
+    pointer-events: none;
+}
+
 .board {
     float: left;
-    width: 816px;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
 }
@@ -17,7 +23,7 @@
 }
 
 .square {
-    height: 100px;
+    height: 102px;
     width: 100px;
     border-top: 2px solid black;
     border-left: 2px solid black;
@@ -443,7 +449,7 @@
     margin: -180px auto 0;
 }
 
-.aboutPanel > div {
+.aboutPanel>div {
     animation: 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) 0s 1 normal forwards running none
 }
 
@@ -452,7 +458,7 @@
     min-height: 430px;
 }
 
-.innerAboutPanel h3{
+.innerAboutPanel h3 {
     text-align: center;
 }
 
