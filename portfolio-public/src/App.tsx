@@ -83,6 +83,7 @@ export default function App() {
               <ul className="list-disc list-inside text-slate-700 space-y-2 print:text-[10px] print:space-y-0 print:leading-tight">
                 <li>Custom e-commerce APIs for enterprise clients using C#, with Docker, K8s, Azure DevOps and Azure Functions</li>
                 <li>Project documentation and client communication</li>
+                <li>Developing connection APIs for OData services, including SAP Concur and Epicore E10/11 and P21</li>
               </ul>
             </div>
 

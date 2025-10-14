@@ -1,9 +1,9 @@
 # Sean J. Hankins
 **Computer Programmer**
 
-📧 [scarabdesign@gmail.com](mailto:scarabdesign@gmail.com)  
-📱 (541) 505-0723  
-📍 Eugene, OR  
+📧 [scarabdesign@gmail.com](mailto:scarabdesign@gmail.com)
+📱 (541) 505-0723
+📍 Eugene, OR
 🔗 [LinkedIn](https://linkedin.com/in/sean-hankins) | [GitHub](https://github.com/scarabdesign)
 
 ---
@@ -25,6 +25,7 @@ Responsible for design, coding and maintenance of:
 Responsible for designing, coding and troubleshooting:
 - Custom e-commerce APIs for enterprise clients using C#, with Docker, K8s, Azure DevOps and Azure Functions
 - Project documentation and client communication
+- Developing connection APIs for OData services, including SAP Concur and Epicore E10/11 and P21
 
 ### Senior Software Engineer
 **[Twenty Ideas](https://twentyideas.com/)** | *Nov 2023 - Nov 2024*
@@ -47,8 +48,8 @@ Responsible for design, coding and maintenance of:
 
 ## Education
 
-**Associate of Applied Science (Computer Programming)**  
-Lane Community College | 2007  
+**Associate of Applied Science (Computer Programming)**
+Lane Community College | 2007
 GPA: 3.69
 
 ---
@@ -65,4 +66,4 @@ jQuery, Node.js, ASP.NET, React, NestJS
 MSSQL, SQLite, PostgreSQL, MySQL, AWS, Azure, MongoDB
 
 ### Tools & OS
-Visual Studio, Rider, VS Code, Git, Jira, Linux, Windows, Mac
+Visual Studio, Rider, VS Code, Git, Jira, Linux, Windows, Mac, Claude, ChatGPT
