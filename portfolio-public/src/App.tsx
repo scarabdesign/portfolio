@@ -206,7 +206,7 @@ export default function App() {
                 Tools & OS
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['Visual Studio', 'Rider', 'VS Code', 'Git', 'Jira', 'Linux', 'Windows', 'Mac'].map(skill => (
+                {['Visual Studio', 'Rider', 'VS Code', 'Git', 'Jira', 'Linux', 'Windows', 'Mac', 'Claude', 'ChatGPT'].map(skill => (
                   <li key={skill} className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
