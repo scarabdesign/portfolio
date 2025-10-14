@@ -24,8 +24,8 @@ Responsible for design, coding and maintenance of:
 
 Responsible for designing, coding and troubleshooting:
 - Custom e-commerce APIs for enterprise clients using C#, with Docker, K8s, Azure DevOps and Azure Functions
-- Project documentation and client communication
 - Developing connection APIs for OData services, including SAP Concur and Epicore E10/11 and P21
+- Project documentation and client communication
 
 ### Senior Software Engineer
 **[Twenty Ideas](https://twentyideas.com/)** | *Nov 2023 - Nov 2024*
