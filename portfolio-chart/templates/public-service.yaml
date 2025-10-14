@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.public.service.name }}
+  labels:
+    {{- include "portfolio.public.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.public.service.type }}
+  ports:
+    - port: {{ .Values.public.service.port }}
+      targetPort: {{ .Values.public.service.targetPort }}
+      {{- if and (eq .Values.public.service.type "NodePort") .Values.public.service.nodePort }}
+      nodePort: {{ .Values.public.service.nodePort }}
+      {{- end }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "portfolio.public.selectorLabels" . | nindent 4 }}

@@ -27,7 +27,8 @@ TODO:
 ***/
 const playerid = localStorage.playerid ?? localStorage.setItem("playerid", uuid()) ?? localStorage.playerid;
 const initialBoard = localStorage.board ?? localStorage.setItem("board", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") ?? localStorage.board;
-const socket = io("ws://38.77.241.58:3000", {
+const apiUrl = import.meta.env.VITE_API_URL || "http://192.168.0.155:8080";
+const socket = io(apiUrl, {
     extraHeaders: { playerid }
 });
 

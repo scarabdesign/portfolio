@@ -1,0 +1,32 @@
+Thank you for installing {{ .Chart.Name }}!
+
+Your release is named {{ .Release.Name }}.
+
+To learn more about the release, try:
+
+  $ helm status {{ .Release.Name }}
+  $ helm get all {{ .Release.Name }}
+
+The following components have been deployed:
+
+1. Portfolio API:
+   - Service: {{ .Values.api.service.name }}
+   - Type: {{ .Values.api.service.type }}
+   {{- if eq .Values.api.service.type "NodePort" }}
+   - Access URL: http://<node-ip>:{{ .Values.api.service.nodePort }}
+   {{- end }}
+   - Port: {{ .Values.api.service.port }}
+
+2. Portfolio Public:
+   - Service: {{ .Values.public.service.name }}
+   - Type: {{ .Values.public.service.type }}
+   {{- if eq .Values.public.service.type "NodePort" }}
+   - Access URL: http://<node-ip>:{{ .Values.public.service.nodePort }}
+   {{- end }}
+   - Port: {{ .Values.public.service.port }}
+
+To get the status of your deployments:
+  kubectl get deployments -l app.kubernetes.io/name={{ include "portfolio.name" . }}
+
+To get the status of your pods:
+  kubectl get pods -l app.kubernetes.io/name={{ include "portfolio.name" . }}

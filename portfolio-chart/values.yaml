@@ -1,0 +1,85 @@
+# Default values for portfolio chart
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Global settings
+global:
+  app: portfolio
+
+# Portfolio API configuration
+api:
+  name: portfolio-api
+  replicaCount: 1
+
+  image:
+    repository: portfolio-api
+    pullPolicy: Never
+    tag: "latest"
+
+  container:
+    name: portfolio-api-container
+    port: 3000
+
+  service:
+    name: portfolio-api-service
+    type: NodePort
+    port: 8080
+    targetPort: 3000
+    nodePort: 30004
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  labels:
+    app: portfolio
+    component: api
+
+# Portfolio Public configuration
+public:
+  name: portfolio-public
+  replicaCount: 1
+
+  image:
+    repository: portfolio-public
+    pullPolicy: Never
+    tag: "latest"
+
+  container:
+    name: portfolio-public-container
+    port: 80
+
+  service:
+    name: portfolio-public
+    type: NodePort
+    port: 80
+    targetPort: 80
+    nodePort: 30005
+
+  # Environment variables
+  env:
+    apiUrl: "http://192.168.0.155:8080"
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  labels:
+    app: portfolio
+    component: public
+
+# Common pod settings
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

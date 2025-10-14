@@ -1,0 +1,134 @@
+---
+# Source: portfolio/templates/api-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-api-service
+  labels:
+    helm.sh/chart: portfolio-0.1.0
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+    app: portfolio
+    component: api
+    name: portfolio-api
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30004
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app: portfolio
+    name: portfolio-api
+---
+# Source: portfolio/templates/public-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-public
+  labels:
+    helm.sh/chart: portfolio-0.1.0
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+    app: portfolio
+    component: public
+    name: portfolio-public
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30005
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app: portfolio
+    name: portfolio-public
+---
+# Source: portfolio/templates/api-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-api
+  labels:
+    helm.sh/chart: portfolio-0.1.0
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+    app: portfolio
+    component: api
+    name: portfolio-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: portfolio
+      app.kubernetes.io/instance: portfolio
+      app: portfolio
+      name: portfolio-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: portfolio
+        app.kubernetes.io/instance: portfolio
+        app: portfolio
+        name: portfolio-api
+    spec:
+      containers:
+        - name: portfolio-api-container
+          image: "portfolio-api:latest"
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+---
+# Source: portfolio/templates/public-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-public
+  labels:
+    helm.sh/chart: portfolio-0.1.0
+    app.kubernetes.io/name: portfolio
+    app.kubernetes.io/instance: portfolio
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+    app: portfolio
+    component: public
+    name: portfolio-public
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: portfolio
+      app.kubernetes.io/instance: portfolio
+      app: portfolio
+      name: portfolio-public
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: portfolio
+        app.kubernetes.io/instance: portfolio
+        app: portfolio
+        name: portfolio-public
+    spec:
+      containers:
+        - name: portfolio-public-container
+          image: "portfolio-public:latest"
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.public.name }}
+  labels:
+    {{- include "portfolio.public.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.public.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "portfolio.public.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "portfolio.public.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Values.public.container.name }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.public.image.repository }}:{{ .Values.public.image.tag }}"
+          imagePullPolicy: {{ .Values.public.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.public.container.port }}
+              protocol: TCP
+          {{- if .Values.public.env }}
+          env:
+            - name: VITE_API_URL
+              value: {{ .Values.public.env.apiUrl | quote }}
+          {{- end }}
+          {{- with .Values.public.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

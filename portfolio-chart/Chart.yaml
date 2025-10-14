@@ -1,0 +1,12 @@
+apiVersion: v2
+name: portfolio
+description: A Helm chart for Portfolio application with API and Public frontend
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - portfolio
+  - web
+  - api
+maintainers:
+  - name: Portfolio Team
