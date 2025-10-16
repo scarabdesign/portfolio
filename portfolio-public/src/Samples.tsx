@@ -84,7 +84,7 @@ export default function Samples() {
           <SubDivider 
             title="Chess" 
             location="seanhankins.com/chess" 
-            link="http://seanhankins.com/chess"
+            link="https://seanhankins.com/chess"
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">
@@ -108,6 +108,35 @@ export default function Samples() {
               </div>
             </div>
           </SubDivider>
+
+          <SubDivider
+            title='MailTrash'
+            location='pointlesswaste.com'
+            link='https://pointlesswaste.com'
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <img src="/resources/MailTrashScreen.png" className="w-full rounded shadow-lg" alt="MailTrash" />
+              </div>
+              <div>
+                <p className="mb-4">
+                  Here is a sample email campaigns application that I created as a proof of concept. It's written in C# using .NET Aspire and deployed to a K8s cluster with Helm.
+                </p>
+                <p>
+                  You can view the source code on my GitHub page:{' '}
+                  <a 
+                    href="https://github.com/scarabdesign/MailTrash" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    github.com/scarabdesign/MailTrash
+                  </a>
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
         </section>
 
         {/* Perpetua Technologies Section */}

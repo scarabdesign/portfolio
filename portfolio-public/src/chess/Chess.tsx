@@ -27,9 +27,25 @@ TODO:
 ***/
 const playerid = localStorage.playerid ?? localStorage.setItem("playerid", uuid()) ?? localStorage.playerid;
 const initialBoard = localStorage.board ?? localStorage.setItem("board", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") ?? localStorage.board;
-const apiUrl = import.meta.env.VITE_API_URL || "http://192.168.0.155:8080";
+
+// Detect local dev environment by checking port (5173 is Vite dev server)
+// or hostname (localhost, 127.0.0.1, or local IP ranges)
+const isLocalDev = window.location.port === '5173' ||
+                   window.location.hostname === 'localhost' ||
+                   window.location.hostname === '127.0.0.1' ||
+                   window.location.hostname.startsWith('192.168.') ||
+                   window.location.hostname.startsWith('10.') ||
+                   window.location.hostname.startsWith('172.');
+
+// In production (seanhankins.com), use same-origin (auto-detects wss:// from https://)
+// In local dev, connect to API on port 3001
+const apiUrl = isLocalDev
+    ? `http://${window.location.hostname}:3001`
+    : window.location.origin;  // Uses current protocol and host
+
 const socket = io(apiUrl, {
-    extraHeaders: { playerid }
+    auth: { playerid },  // Use auth instead of extraHeaders for WebSocket
+    transports: ['websocket'],  // Force WebSocket only (skip HTTP polling)
 });
 
 const ChessRequestSub = 'chessRequest'

@@ -8,6 +8,9 @@ RUN npm install
 
 COPY . .
 
+# Set port for Docker container
+ENV PORT=3000
+
 EXPOSE 3000
 
 CMD ["npm", "start"]

@@ -6,6 +6,11 @@
 global:
   app: portfolio
 
+# Ingress configuration
+ingress:
+  enabled: true
+  host: "seanhankins.com"
+
 # Portfolio API configuration
 api:
   name: portfolio-api
@@ -22,10 +27,9 @@ api:
 
   service:
     name: portfolio-api-service
-    type: NodePort
+    type: ClusterIP
     port: 8080
     targetPort: 3000
-    nodePort: 30004
 
   resources: {}
     # limits:
@@ -55,14 +59,13 @@ public:
 
   service:
     name: portfolio-public
-    type: NodePort
+    type: ClusterIP
     port: 80
     targetPort: 80
-    nodePort: 30005
 
   # Environment variables
   env:
-    apiUrl: "http://192.168.0.155:8080"
+    apiUrl: "https://seanhankins.com"
 
   resources: {}
     # limits:

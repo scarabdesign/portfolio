@@ -1,0 +1,78 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio-ingress
+  labels:
+    app: portfolio
+  annotations:
+    # Nginx Ingress Controller annotations
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Redirect HTTP to HTTPS
+    nginx.ingress.kubernetes.io/redirect-to-https: "true"
+    # Use Let's Encrypt for automatic SSL certificates
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # Set max body size for uploads
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - seanhankins.com
+    - www.seanhankins.com
+    secretName: portfolio-tls-cert
+  rules:
+  - host: seanhankins.com
+    http:
+      paths:
+      # API service
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-api-service
+            port:
+              number: 8080
+      # WebSocket support for chess
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-api-service
+            port:
+              number: 8080
+      # Public frontend (catch-all, must be last)
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-public
+            port:
+              number: 80
+  - host: www.seanhankins.com
+    http:
+      paths:
+      # API service
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-api-service
+            port:
+              number: 8080
+      # WebSocket support for chess
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-api-service
+            port:
+              number: 8080
+      # Public frontend (catch-all, must be last)
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-public
+            port:
+              number: 80

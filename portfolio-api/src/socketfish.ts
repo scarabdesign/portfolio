@@ -332,7 +332,7 @@ function AddStockfishListeners(playerid: string, validate: Function, listen: Fun
 }
 
 function ServerConnect(socket: Socket){
-  let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+  let playerid = socket.handshake.auth?.playerid || randomUUID();
   if (!connections[playerid]) {
 
     //TODO: to add here:
@@ -353,7 +353,7 @@ function ServerConnect(socket: Socket){
 
   socket.on('disconnect', (reason) => {
     //TODO: remove connections entry? or keep for reconnecting
-    console.log(reason, socket.handshake.headers.playerid.toString());
+    console.log(reason, socket.handshake.auth?.playerid || 'unknown');
   });
 
   socket.on('error', (err) => {
@@ -368,7 +368,7 @@ function ServerConnect(socket: Socket){
 
 function OnChessMovesRequest(request: ChessRequest, socket: Socket) {
   try {
-    let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+    let playerid = socket.handshake.auth?.playerid || randomUUID();
     let id = request.playerid || playerid;
     let piece = request.param;
     GetValidMoves(piece, id);
@@ -380,7 +380,7 @@ function OnChessMovesRequest(request: ChessRequest, socket: Socket) {
 
 function OnChessRequest(request: ChessRequest, socket: Socket) {
   try {
-    let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+    let playerid = socket.handshake.auth?.playerid || randomUUID();
     let id = request.playerid || playerid;
     let move = request.param;
     ParseGameMove(move, id);
@@ -392,7 +392,7 @@ function OnChessRequest(request: ChessRequest, socket: Socket) {
 
 function OnChessUndoRequest(request: ChessRequest, socket: Socket) {
   try {
-    let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+    let playerid = socket.handshake.auth?.playerid || randomUUID();
     UndoMove(playerid);
   }
   catch (e) {
@@ -402,7 +402,7 @@ function OnChessUndoRequest(request: ChessRequest, socket: Socket) {
 
 function OnChessClearRequest(request: ChessRequest, socket: Socket) {
   try {
-    let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+    let playerid = socket.handshake.auth?.playerid || randomUUID();
     ClearBoard(playerid);
   }
   catch (e) {
@@ -412,7 +412,7 @@ function OnChessClearRequest(request: ChessRequest, socket: Socket) {
 
 function OnChessSetBoardRequest(request: ChessRequest, socket: Socket) {
   try {
-    let playerid = socket.handshake.headers.playerid.toString() || randomUUID();
+    let playerid = socket.handshake.auth?.playerid || randomUUID();
     let id = request.playerid || playerid;
     let fen = request.param;
     SetGameBoard(fen, id);

@@ -1,0 +1,84 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.global.app }}-ingress
+  labels:
+    app: {{ .Values.global.app }}
+  annotations:
+    # Nginx Ingress Controller annotations
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Redirect HTTP to HTTPS
+    nginx.ingress.kubernetes.io/redirect-to-https: "true"
+    # Optional: Use Let's Encrypt for automatic SSL certificates
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # Optional: Set max body size for uploads
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    # WebSocket support for socket.io
+    nginx.ingress.kubernetes.io/websocket-services: "{{ .Values.api.service.name }}"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - {{ .Values.ingress.host }}
+    - www.{{ .Values.ingress.host }}
+    secretName: {{ .Values.global.app }}-tls-cert
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      # API service
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.api.service.name }}
+            port:
+              number: {{ .Values.api.service.port }}
+      # WebSocket support for chess
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.api.service.name }}
+            port:
+              number: {{ .Values.api.service.port }}
+      # Public frontend (catch-all, must be last)
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.public.service.name }}
+            port:
+              number: {{ .Values.public.service.port }}
+  - host: www.{{ .Values.ingress.host }}
+    http:
+      paths:
+      # API service
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.api.service.name }}
+            port:
+              number: {{ .Values.api.service.port }}
+      # WebSocket support for chess
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.api.service.name }}
+            port:
+              number: {{ .Values.api.service.port }}
+      # Public frontend (catch-all, must be last)
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.public.service.name }}
+            port:
+              number: {{ .Values.public.service.port }}
+{{- end }}

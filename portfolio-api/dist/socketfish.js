@@ -258,7 +258,8 @@ function AddStockfishListeners(playerid, validate, listen, callback) {
     }
 }
 function ServerConnect(socket) {
-    let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+    var _a;
+    let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
     if (!connections[playerid]) {
         connections[playerid] = {
             socket,
@@ -271,7 +272,8 @@ function ServerConnect(socket) {
         connections[playerid].socket = socket;
     }
     socket.on('disconnect', (reason) => {
-        console.log(reason, socket.handshake.headers.playerid.toString());
+        var _a;
+        console.log(reason, ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || 'unknown');
     });
     socket.on('error', (err) => {
         console.log(err);
@@ -280,8 +282,9 @@ function ServerConnect(socket) {
     console.log("Chess Connection: " + playerid);
 }
 function OnChessMovesRequest(request, socket) {
+    var _a;
     try {
-        let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+        let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
         let id = request.playerid || playerid;
         let piece = request.param;
         GetValidMoves(piece, id);
@@ -291,8 +294,9 @@ function OnChessMovesRequest(request, socket) {
     }
 }
 function OnChessRequest(request, socket) {
+    var _a;
     try {
-        let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+        let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
         let id = request.playerid || playerid;
         let move = request.param;
         ParseGameMove(move, id);
@@ -302,8 +306,9 @@ function OnChessRequest(request, socket) {
     }
 }
 function OnChessUndoRequest(request, socket) {
+    var _a;
     try {
-        let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+        let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
         UndoMove(playerid);
     }
     catch (e) {
@@ -311,8 +316,9 @@ function OnChessUndoRequest(request, socket) {
     }
 }
 function OnChessClearRequest(request, socket) {
+    var _a;
     try {
-        let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+        let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
         ClearBoard(playerid);
     }
     catch (e) {
@@ -320,8 +326,9 @@ function OnChessClearRequest(request, socket) {
     }
 }
 function OnChessSetBoardRequest(request, socket) {
+    var _a;
     try {
-        let playerid = socket.handshake.headers.playerid.toString() || (0, crypto_1.randomUUID)();
+        let playerid = ((_a = socket.handshake.auth) === null || _a === void 0 ? void 0 : _a.playerid) || (0, crypto_1.randomUUID)();
         let id = request.playerid || playerid;
         let fen = request.param;
         SetGameBoard(fen, id);
