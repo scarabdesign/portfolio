@@ -57,13 +57,13 @@ GPA: 3.69
 ## Skills
 
 ### Languages
-C# / .NET, JavaScript, HTML/CSS, Python, Java, PHP, Golang
+C# / .NET, JavaScript, HTML/CSS, Python, Java, PHP
 
 ### Platforms
-jQuery, Node.js, ASP.NET, React, NestJS
+jQuery, Node.js, ASP.NET, React, Android, iOS
 
 ### Storage
-MSSQL, SQLite, PostgreSQL, MySQL, AWS, Azure, MongoDB
+MSSQL, SQLite, PostgreSQL, MySQL, AWS, Azure, MongoDB, Redis
 
 ### Tools & OS
 Visual Studio, Rider, VS Code, Git, Jira, Linux, Windows, Mac, Claude, ChatGPT

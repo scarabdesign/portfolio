@@ -165,7 +165,7 @@ export default function App() {
                 Languages
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['C# / .NET', 'JavaScript', 'HTML/CSS', 'Python', 'Java', 'PHP', 'Golang'].map(skill => (
+                {['C# / .NET', 'JavaScript', 'HTML/CSS', 'Python', 'Java', 'PHP'].map(skill => (
                   <li key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
@@ -179,7 +179,7 @@ export default function App() {
                 Platforms
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['jQuery', 'Node.js', 'ASP.NET', 'React', 'NestJS'].map(skill => (
+                {['jQuery', 'Node.js', 'ASP.NET', 'React', 'Android', 'iOS'].map(skill => (
                   <li key={skill} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>

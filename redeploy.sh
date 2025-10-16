@@ -3,7 +3,9 @@
 # Unified Redeployment Script for Portfolio & MailTrash
 # Usage: ./redeploy.sh [portfolio|mailtrash|all] [api|public|web|all]
 
+# Exit on error, but show the error first
 set -e
+trap 'echo "❌ Error on line $LINENO. Command: $BASH_COMMAND"' ERR
 
 PROJECT=${1:-all}
 COMPONENT=${2:-all}
@@ -145,9 +147,19 @@ echo ""
 echo "🎉 Deployment complete!"
 echo ""
 echo "📊 Current pods:"
-kubectl get pods -l app=portfolio,app=mailtrash -o wide 2>/dev/null || \
-kubectl get pods -l app.kubernetes.io/name=portfolio,app.kubernetes.io/name=mailtrash -o wide 2>/dev/null || \
-kubectl get pods
+# Show pods for the deployed project(s)
+if [ "$PROJECT" = "portfolio" ]; then
+    kubectl get pods -l app.kubernetes.io/name=portfolio -o wide 2>/dev/null || kubectl get pods -l app=portfolio -o wide
+elif [ "$PROJECT" = "mailtrash" ]; then
+    kubectl get pods -l app.kubernetes.io/name=mailtrash -o wide 2>/dev/null || kubectl get pods -l app=mailtrash -o wide
+else
+    # Show both projects
+    echo "Portfolio pods:"
+    kubectl get pods -l app.kubernetes.io/name=portfolio -o wide 2>/dev/null || kubectl get pods -l app=portfolio -o wide 2>/dev/null || echo "  None found"
+    echo ""
+    echo "MailTrash pods:"
+    kubectl get pods -l app.kubernetes.io/name=mailtrash -o wide 2>/dev/null || kubectl get pods -l app=mailtrash -o wide 2>/dev/null || echo "  None found"
+fi
 
 # Show access info
 echo ""
