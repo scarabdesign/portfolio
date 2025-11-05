@@ -60,7 +60,7 @@ export default function App() {
               </div>
               <p className="text-slate-700 mb-3 print:text-[10px] print:mb-1">Responsible for design, coding and maintenance of:</p>
               <ul className="list-disc list-inside text-slate-700 space-y-2 print:text-[10px] print:space-y-0 print:leading-tight">
-                <li>A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin: Android/iOS/Windows)</li>
+                <li>A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin/MAUI: Android/iOS/Windows)</li>
                 <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)</li>
                 <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)</li>
                 <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)</li>

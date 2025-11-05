@@ -14,7 +14,7 @@
 **[Perpetua Technologies, LLC](https://www.enroutepro.com/)** | *Mar 2019 - Present*
 
 Responsible for design, coding and maintenance of:
-- A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin: Android/iOS/Windows)
+- A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin/MAUI: Android/iOS/Windows)
 - An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)
 - A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)
 - API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)

@@ -10,7 +10,6 @@ export default function Nav() {
 
   const navLinks = [
     { path: '/', label: 'Résumé' },
-    { path: '/chess', label: 'Chess (React/Vite/NestJS)' },
     { path: '/samples', label: 'Sample Portfolio' },
   ];
 
