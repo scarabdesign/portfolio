@@ -3,9 +3,9 @@ import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Code, 
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 print:bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 print:bg-none print:from-transparent print:to-transparent">
       {/* Header */}
-      <header className="bg-slate-900 text-white py-16 px-6 print:bg-white print:text-black print:py-2 print:border-b print:border-black">
+      <header className="bg-slate-900 text-white py-16 px-6 print:!bg-transparent print:text-black print:py-2 print:border-b print:border-black">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 print:text-2xl print:mb-0.5">Sean J. Hankins</h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-6 print:text-base print:text-black print:mb-1">Computer Programmer</p>
@@ -38,7 +38,7 @@ export default function App() {
       {/* Main Content */}
       <main className="max-w-5xl mx-auto px-6 py-12 print:py-1 print:px-4">
         {/* Experience Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:shadow-none print:p-0 print:mb-1 print:rounded-none">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
           <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             <Briefcase size={28} className="print:hidden" />
@@ -132,7 +132,7 @@ export default function App() {
         </section>
 
         {/* Education Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:shadow-none print:p-0 print:mb-1 print:rounded-none print:break-inside-avoid">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none print:break-inside-avoid">
           <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             <GraduationCap size={28} className="print:hidden" />
@@ -151,7 +151,7 @@ export default function App() {
         </section>
 
         {/* Skills Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:shadow-none print:p-0 print:mb-0 print:rounded-none print:break-inside-avoid">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-0 print:rounded-none print:break-inside-avoid">
           <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             <Code size={28} className="print:hidden" />
@@ -166,7 +166,7 @@ export default function App() {
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
                 {['C# / .NET', 'JavaScript', 'HTML/CSS', 'Python', 'Java', 'PHP'].map(skill => (
-                  <li key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
+                  <li key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
                 ))}
@@ -180,7 +180,7 @@ export default function App() {
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
                 {['jQuery', 'Node.js', 'ASP.NET', 'React', 'Android', 'iOS'].map(skill => (
-                  <li key={skill} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
+                  <li key={skill} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
                 ))}
@@ -194,7 +194,7 @@ export default function App() {
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
                 {['MSSQL', 'SQLite', 'PostgreSQL', 'MySQL', 'AWS', 'Azure', 'MongoDB', 'Redis'].map(skill => (
-                  <li key={skill} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
+                  <li key={skill} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
                 ))}
@@ -208,7 +208,7 @@ export default function App() {
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
                 {['Visual Studio', 'Rider', 'VS Code', 'Git', 'Jira', 'Linux', 'Windows', 'Mac', 'Claude', 'ChatGPT'].map(skill => (
-                  <li key={skill} className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm print:bg-white print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
+                  <li key={skill} className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[10px] print:leading-tight">
                     {skill}
                   </li>
                 ))}

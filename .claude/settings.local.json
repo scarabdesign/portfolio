@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(minikube status:*)",
+      "Bash(minikube docker-env:*)",
+      "Bash(echo:*)",
+      "Bash(bash -c:*)",
+      "Bash(bash:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl rollout:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(./redeploy.sh:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
