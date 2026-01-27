@@ -18,6 +18,7 @@ Responsible for design, coding and maintenance of:
 - An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)
 - A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)
 - API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)
+- Full platform modernization from legacy systems to cloud-native architecture with real-time SignalR messaging, containerized services, and AI-assisted development (.NET 10, Blazor, PostgreSQL, MongoDB, Docker, Claude Code)
 
 ### Senior Software Developer
 **[Clarity Ventures Inc.](https://www.clarity-ventures.com/)** | *Jun 2025 - Oct 2025*

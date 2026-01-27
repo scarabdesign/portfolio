@@ -64,6 +64,7 @@ export default function App() {
                 <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)</li>
                 <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)</li>
                 <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)</li>
+                <li>Full platform modernization from legacy systems to cloud-native architecture with real-time SignalR messaging, containerized services, and AI-assisted development (.NET 10, Blazor, PostgreSQL, MongoDB, Docker, Claude Code)</li>
               </ul>
             </div>
 

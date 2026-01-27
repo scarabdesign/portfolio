@@ -9,7 +9,8 @@
       "Bash(kubectl get:*)",
       "Bash(kubectl rollout:*)",
       "Bash(kubectl logs:*)",
-      "Bash(./redeploy.sh:*)"
+      "Bash(./redeploy.sh:*)",
+      "WebFetch(domain:ebsco.dejobs.org)"
     ],
     "deny": [],
     "ask": []

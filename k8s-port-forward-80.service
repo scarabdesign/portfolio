@@ -1,0 +1,18 @@
+[Unit]
+Description=Kubernetes Ingress Port Forward (HTTP 80)
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=administrator
+Environment="KUBECONFIG=/home/administrator/.kube/config"
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStartPre=/bin/bash -c 'until /home/administrator/bin/kubectl get nodes &>/dev/null; do sleep 5; done'
+ExecStart=/home/administrator/bin/kubectl port-forward -n ingress-nginx svc/ingress-nginx-controller 80:80 --address 0.0.0.0
+Restart=always
+RestartSec=10
+TimeoutStartSec=180
+
+[Install]
+WantedBy=multi-user.target
