@@ -1120,9 +1120,27 @@ function Tester() {
     //SetBoard("rnbqkbnr/ppp1pppp/8/8/P1Pp4/8/1P1PPPPP/RNBQKBNR b KQkq c3 0 3");
 }
 
+// Check if we should redirect (outside component to avoid hook issues)
+const shouldRedirectToPointlesswaste = () => {
+    const allowedHosts = ['pointlesswaste.com', 'www.pointlesswaste.com', 'localhost', '127.0.0.1'];
+    const isLocalNetwork = window.location.hostname.startsWith('192.168.') ||
+                           window.location.hostname.startsWith('10.') ||
+                           window.location.hostname.startsWith('172.');
+    return !allowedHosts.includes(window.location.hostname) && !isLocalNetwork;
+};
+
 function Chess() {
     const [load, reload] = useState(new Date().getTime());
-    
+    const [redirecting, setRedirecting] = useState(false);
+
+    useEffect(() => {
+        // Redirect to pointlesswaste.com if not on allowed hosts
+        if (shouldRedirectToPointlesswaste()) {
+            setRedirecting(true);
+            window.location.href = 'https://pointlesswaste.com/chess';
+        }
+    }, []);
+
     useEffect(() => {
         // Reinitialize drag/drop after component renders
         setTimeout(() => {
@@ -1131,6 +1149,10 @@ function Chess() {
             }
         }, 100);
     }, [load]); // Runs when load state changes (i.e., when Refresh is called)
+
+    if (redirecting) {
+        return <div className="chessbody"><p>Redirecting to pointlesswaste.com...</p></div>;
+    }
     
     Refresh = function () {
         reload(new Date().getTime());
