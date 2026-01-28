@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: pointlesswaste-chess-ingress
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
@@ -13,7 +14,7 @@ spec:
   tls:
   - hosts:
     - chess.pointlesswaste.com
-    secretName: mailtrash-tls-cert
+    secretName: chess-tls-cert
   rules:
   - host: chess.pointlesswaste.com
     http:
