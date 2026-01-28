@@ -83,8 +83,8 @@ export default function Samples() {
 
           <SubDivider
             title="Chess"
-            location="pointlesswaste.com/chess"
-            link="https://pointlesswaste.com/chess"
+            location="chess.pointlesswaste.com"
+            link="https://chess.pointlesswaste.com"
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">

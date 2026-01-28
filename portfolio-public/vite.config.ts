@@ -13,6 +13,9 @@ export default defineConfig({
     allowedHosts: [
       'seanhankins.com',
       'www.seanhankins.com',
+      'pointlesswaste.com',
+      'www.pointlesswaste.com',
+      'chess.pointlesswaste.com',
       'localhost',
       '192.168.0.155'
     ],

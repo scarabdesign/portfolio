@@ -1122,7 +1122,7 @@ function Tester() {
 
 // Check if we should redirect (outside component to avoid hook issues)
 const shouldRedirectToPointlesswaste = () => {
-    const allowedHosts = ['pointlesswaste.com', 'www.pointlesswaste.com', 'localhost', '127.0.0.1'];
+    const allowedHosts = ['chess.pointlesswaste.com', 'localhost', '127.0.0.1'];
     const isLocalNetwork = window.location.hostname.startsWith('192.168.') ||
                            window.location.hostname.startsWith('10.') ||
                            window.location.hostname.startsWith('172.');
@@ -1137,7 +1137,7 @@ function Chess() {
         // Redirect to pointlesswaste.com if not on allowed hosts
         if (shouldRedirectToPointlesswaste()) {
             setRedirecting(true);
-            window.location.href = 'https://pointlesswaste.com/chess';
+            window.location.href = 'https://chess.pointlesswaste.com';
         }
     }, []);
 
