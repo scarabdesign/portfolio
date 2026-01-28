@@ -12,11 +12,13 @@ import { fas } from "@fortawesome/free-solid-svg-icons"
 // Add FontAwesome icons to library for Chess component
 library.add(fas, far);
 
+const isChessDomain = window.location.hostname === 'chess.pointlesswaste.com';
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route index element={ <App /> } />
+        <Route index element={ isChessDomain ? <Chess /> : <App /> } />
         <Route path="/chess" element={ <Chess /> } />
         <Route path="/samples" element={ <Samples /> } />
       </Routes>
