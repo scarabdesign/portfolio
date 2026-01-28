@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Code, Database, Monitor, Wrench } from 'lucide-react';
 
 export default function App() {

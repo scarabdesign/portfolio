@@ -515,7 +515,7 @@ function SetUpDrag() {
                 GetMoves(overSquare);
             }
         })
-        .on("mouseleave", (e) => {
+        .on("mouseleave", () => {
             if (isDragging) return;
             !isClick && ClearBoardStyles();
         })
@@ -725,7 +725,7 @@ function HighlightSquares({ moves, piece, square, safecastle, danger }: Highligh
         safecastle.Q && castles.search("Q") > -1 && !(GetPieceAtSquare("c1") || []).length && squares.push("c1");
     }
 
-    $(".square").each((i, elem) => {
+    $(".square").each((_i, elem) => {
         var row = $(elem).attr("data-row");
         var column = $(elem).attr("data-column");
         if (row && column) {
