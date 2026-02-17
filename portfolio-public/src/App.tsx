@@ -67,6 +67,7 @@ export default function App() {
                 <li>Decomposed monolithic 6,700-line API handler into 38 RESTful controllers with OpenAPI documentation, increased async coverage from 8% to 37%, and grew test coverage 31x (7 → 217 test files) (xUnit, Playwright, Jest)</li>
                 <li>Migrated from Windows Server/IIS/SQL Server to Linux containers with PostgreSQL and PostGIS, eliminating proprietary database licensing costs and enabling deployment on minimal infrastructure (Docker, EF Core, PostGIS)</li>
                 <li>Replaced custom WebSocket implementation with SignalR hubs supporting 200K+ concurrent connections, added structured logging and distributed tracing (Serilog, Seq, OpenTelemetry)</li>
+                <li>Leveraged AI-assisted development (Claude Code) to accelerate platform modernization, including automated test generation, code migration, architectural refactoring, and documentation</li>
               </ul>
             </div>
 
