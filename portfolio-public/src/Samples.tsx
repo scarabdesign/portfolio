@@ -10,10 +10,10 @@ type SubDividerProps = {
 
 function SubDivider({ children, title, location, link }: SubDividerProps) {
   return (
-    <div className="mb-8 print:mb-3 print:break-inside-avoid">
-      <h3 className="text-2xl font-semibold text-slate-900 mb-2 print:text-[11px] print:font-bold print:mb-0.5">{title}</h3>
-      <div className="h-px bg-slate-300 mb-3 print:mb-1"></div>
-      <div className="flex items-center gap-2 mb-4 print:mb-1">
+    <div className="mb-8 print:mb-2 print:break-inside-avoid">
+      <h3 className="text-2xl font-semibold text-slate-900 mb-2 print:text-[11px] print:font-bold print:mb-0">{title}</h3>
+      <div className="h-px bg-slate-300 mb-3 print:mb-0.5"></div>
+      <div className="flex items-center gap-2 mb-4 print:mb-0.5">
         {link ? (
           <a
             href={link}
@@ -50,7 +50,7 @@ export default function Samples() {
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-12 print:py-1 print:px-4">
         {/* Independent Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-2 print:rounded-none">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
           <h2 className="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             Independent Projects
@@ -146,34 +146,35 @@ export default function Samples() {
         </section>
 
         {/* Perpetua Technologies Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-2 print:rounded-none print:break-before-page">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
+          <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-0.5 print:border-b print:border-gray-400 print:pb-0">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             Perpetua Technologies, LLC
           </h2>
 
           <SubDivider
-            title="EnRouteProCloud"
+            title="EnRoutePro Cloud"
             location="enroutepro.com"
             link="https://www.enroutepro.com/"
           >
             <div>
-              <img src="/resources/ERPCScreen.png" className="float-left mr-6 mb-4 w-2/3 lg:w-1/2 rounded shadow-lg print:shadow-none print:rounded-none print:w-[300px] print:mr-3 print:mb-1" alt="EnRouteProCloud" />
+              <img src="/resources/ERPCScreen.png" className="float-left mr-6 mb-4 w-2/3 lg:w-1/2 rounded shadow-lg print:shadow-none print:rounded-none print:w-[200px] print:mr-3 print:mb-1" alt="EnRoutePro Cloud" />
               <p className="mb-4 print:mb-1">
-                EnRouteProCloud is a cloud-native computer-aided dispatch (CAD) and resource management platform built for fire departments and emergency services. It provides real-time incident dispatching, apparatus and personnel tracking, map-based situational awareness with integrated fire detection data, and multi-channel alert delivery via push notifications, SMS, and email. The platform supports both web-based dispatch centers and mobile field units, enabling coordinated emergency response across distributed teams.
+                EnRoutePro Cloud is a cloud-native computer-aided dispatch (CAD) and resource management platform built for fire departments and emergency services. It provides real-time incident dispatching, apparatus and personnel tracking, map-based situational awareness with integrated fire detection data, and multi-channel alert delivery via push notifications, SMS, and email. The platform supports both web-based dispatch centers and mobile field units, enabling coordinated emergency response across distributed teams.
               </p>
               <p className="mb-4 print:mb-1">
                 The system manages the full lifecycle of emergency operations — from CAD email ingestion and incident creation through unit dispatch, en-route tracking, and post-incident reporting. Built on .NET 10 with a Blazor Server frontend, RESTful API layer, and SignalR hubs supporting 200K+ concurrent connections, it delivers real-time updates to dispatchers and field personnel simultaneously. Structured logging, distributed tracing, and integrated mapping with Google Maps and NASA FIRMS fire detection provide operational intelligence at every level.
               </p>
               <p className="mb-4 print:mb-1">
-                EnRouteProCloud is a ground-up modernization of the legacy EnRoutePro platform, consolidating 63 projects across 19 solutions into a streamlined 11-project architecture — an 83% reduction in codebase complexity. The monolithic 6,700-line API handler was decomposed into 38 RESTful controllers with OpenAPI documentation, async coverage grew from 8% to 37%, and test coverage expanded 31x from 7 to 217 test files across xUnit, Playwright, and Jest. Infrastructure moved from Windows Server, IIS, and SQL Server to Linux containers with PostgreSQL and PostGIS, eliminating proprietary database licensing costs and enabling deployment on minimal infrastructure.
+                EnRoutePro Cloud is a ground-up modernization of the legacy EnRoutePro platform, consolidating 63 projects across 19 solutions into a streamlined 11-project architecture — an 83% reduction in codebase complexity. The monolithic 6,700-line API handler was decomposed into 38 RESTful controllers with OpenAPI documentation, async coverage grew from 8% to 37%, and test coverage expanded 31x from 7 to 217 test files across xUnit, Playwright, and Jest. Infrastructure moved from Windows Server, IIS, and SQL Server to Linux containers with PostgreSQL and PostGIS, eliminating proprietary database licensing costs and enabling deployment on minimal infrastructure.
               </p>
               <p>
-                AI-assisted development with Claude Code accelerated the modernization effort, driving automated test generation, code migration, architectural refactoring, and documentation. The legacy custom WebSocket implementation was replaced with SignalR hubs, and the platform adopted structured logging with Serilog, Seq, and OpenTelemetry for full observability. Orchestrated with .NET Aspire and Docker, EnRouteProCloud delivers a maintainable, cost-effective foundation positioned for continued growth.
+                AI-assisted development with Claude Code accelerated the modernization effort, driving automated test generation, code migration, architectural refactoring, and documentation. The legacy custom WebSocket implementation was replaced with SignalR hubs, and the platform adopted structured logging with Serilog, Seq, and OpenTelemetry for full observability. Orchestrated with .NET Aspire and Docker, EnRoutePro Cloud delivers a maintainable, cost-effective foundation positioned for continued growth.
               </p>
             </div>
           </SubDivider>
 
+          <div className="print:break-before-page"></div>
           <SubDivider
             title="EnRoutePro 4"
             location="enroutepro.com"
@@ -268,8 +269,8 @@ export default function Samples() {
         </section>
 
         {/* Moonshadow Mobile Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-2 print:rounded-none print:break-before-page">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none print:break-before-page">
+          <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-0.5 print:border-b print:border-gray-400 print:pb-0">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             Moonshadow Mobile, Inc
           </h2>
