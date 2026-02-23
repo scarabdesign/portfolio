@@ -49,102 +49,6 @@ export default function Samples() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-12 print:py-1 print:px-4">
-        {/* Independent Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
-            <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
-            Independent Projects
-          </h2>
-          <p className="text-slate-700 leading-relaxed mb-8 print:text-[9px] print:mb-2 print:leading-tight">
-            Coding is my job, hobby and livelihood. Here are a few things I've created or helped to create of which I'm most proud.
-          </p>
-
-          <SubDivider
-            title="Viands"
-            location="github.com/scarabdesign/Viands"
-            link="https://github.com/scarabdesign/Viands"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
-              <div className="lg:col-span-2 flex gap-4 justify-center print:hidden">
-                <video width="240" height="533" controls className="rounded shadow-lg">
-                  <source src="./resources/ViandsDemo2Compressed.mp4" type="video/mp4" />
-                </video>
-                <video width="240" height="533" controls className="rounded shadow-lg">
-                  <source src="./resources/ViandsDemoCompressed.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div className="hidden print:block print:col-span-1">
-                <img src="/resources/ViandsScreen.png" className="max-w-[150px] rounded-none shadow-none" alt="Viands" />
-              </div>
-              <div className="print:col-span-2">
-                <p className="mb-4 print:mb-1">
-                  Personalized shopping list program written with .NET8 MAUI Blazor and an SQLite store. The back-end API was written with NestJS/NodeJs/ExpressJS with a PostgreSQL store.
-                </p>
-                <p>
-                  Viands is a suite of applications for Windows, iOS and Android (more platforms to come) that allows a user to add products and line items to shopping lists and mark them off as they shop. Also boasts a barcode scanner for easy product additions and a cloud backup scheme.
-                </p>
-              </div>
-            </div>
-          </SubDivider>
-
-          <SubDivider
-            title="Chess"
-            location="chess.pointlesswaste.com"
-            link="https://chess.pointlesswaste.com"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
-              <div className="lg:col-span-2 print:col-span-1">
-                <img src="/resources/ChessScreen.png" className="w-full rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="Chess Game" />
-              </div>
-              <div className="print:col-span-2">
-                <p className="mb-4 print:mb-1">
-                  This is a simple chess application coded in React 18 with Vite and a NestJS API. I'm using a WebSocket to communicate with the chess AI Stockfish.
-                </p>
-                <p>
-                  You can view the source code on my GitHub page:{' '}
-                  <a
-                    href="https://github.com/scarabdesign/portfolio/blob/main/portfolio-public/src/chess/Chess.tsx"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline print:text-black print:underline"
-                  >
-                    github.com/scarabdesign/portfolio
-                  </a>
-                </p>
-              </div>
-            </div>
-          </SubDivider>
-
-          <SubDivider
-            title='MailTrash'
-            location='pointlesswaste.com'
-            link='https://pointlesswaste.com'
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
-              <div className="lg:col-span-2 print:col-span-1">
-                <img src="/resources/MailTrashScreen.png" className="w-full rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="MailTrash" />
-              </div>
-              <div className="print:col-span-2">
-                <p className="mb-4 print:mb-1">
-                  Here is a sample email campaigns application that I created as a proof of concept. It's written in C# using .NET Aspire and deployed to a K8s cluster with Helm.
-                </p>
-                <p>
-                  You can view the source code on my GitHub page:{' '}
-                  <a
-                    href="https://github.com/scarabdesign/MailTrash"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline print:text-black print:underline"
-                  >
-                    github.com/scarabdesign/MailTrash
-                  </a>
-                </p>
-              </div>
-            </div>
-          </SubDivider>
-
-        </section>
-
         {/* Perpetua Technologies Section */}
         <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
           <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-0.5 print:border-b print:border-gray-400 print:pb-0">
@@ -352,6 +256,102 @@ export default function Samples() {
               </div>
             </div>
           </SubDivider>
+        </section>
+
+        {/* Independent Section */}
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3 print:text-sm print:mb-1 print:border-b print:border-gray-400 print:pb-0.5">
+            <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
+            Independent Projects
+          </h2>
+          <p className="text-slate-700 leading-relaxed mb-8 print:text-[9px] print:mb-2 print:leading-tight">
+            Coding is my job, hobby and livelihood. Here are a few things I've created or helped to create of which I'm most proud.
+          </p>
+
+          <SubDivider
+            title="Viands"
+            location="github.com/scarabdesign/Viands"
+            link="https://github.com/scarabdesign/Viands"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-2 flex gap-4 justify-center print:hidden">
+                <video width="240" height="533" controls className="rounded shadow-lg">
+                  <source src="./resources/ViandsDemo2Compressed.mp4" type="video/mp4" />
+                </video>
+                <video width="240" height="533" controls className="rounded shadow-lg">
+                  <source src="./resources/ViandsDemoCompressed.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="hidden print:block print:col-span-1">
+                <img src="/resources/ViandsScreen.png" className="max-w-[150px] rounded-none shadow-none" alt="Viands" />
+              </div>
+              <div className="print:col-span-2">
+                <p className="mb-4 print:mb-1">
+                  Personalized shopping list program written with .NET8 MAUI Blazor and an SQLite store. The back-end API was written with NestJS/NodeJs/ExpressJS with a PostgreSQL store.
+                </p>
+                <p>
+                  Viands is a suite of applications for Windows, iOS and Android (more platforms to come) that allows a user to add products and line items to shopping lists and mark them off as they shop. Also boasts a barcode scanner for easy product additions and a cloud backup scheme.
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
+          <SubDivider
+            title="Chess"
+            location="chess.pointlesswaste.com"
+            link="https://chess.pointlesswaste.com"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-2 print:col-span-1">
+                <img src="/resources/ChessScreen.png" className="w-full rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="Chess Game" />
+              </div>
+              <div className="print:col-span-2">
+                <p className="mb-4 print:mb-1">
+                  This is a simple chess application coded in React 18 with Vite and a NestJS API. I'm using a WebSocket to communicate with the chess AI Stockfish.
+                </p>
+                <p>
+                  You can view the source code on my GitHub page:{' '}
+                  <a
+                    href="https://github.com/scarabdesign/portfolio/blob/main/portfolio-public/src/chess/Chess.tsx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline print:text-black print:underline"
+                  >
+                    github.com/scarabdesign/portfolio
+                  </a>
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
+          <SubDivider
+            title='MailTrash'
+            location='pointlesswaste.com'
+            link='https://pointlesswaste.com'
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-2 print:col-span-1">
+                <img src="/resources/MailTrashScreen.png" className="w-full rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="MailTrash" />
+              </div>
+              <div className="print:col-span-2">
+                <p className="mb-4 print:mb-1">
+                  Here is a sample email campaigns application that I created as a proof of concept. It's written in C# using .NET Aspire and deployed to a K8s cluster with Helm.
+                </p>
+                <p>
+                  You can view the source code on my GitHub page:{' '}
+                  <a
+                    href="https://github.com/scarabdesign/MailTrash"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline print:text-black print:underline"
+                  >
+                    github.com/scarabdesign/MailTrash
+                  </a>
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
         </section>
       </main>
 
