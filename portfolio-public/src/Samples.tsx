@@ -78,7 +78,6 @@ export default function Samples() {
             </div>
           </SubDivider>
 
-          <div className="print:break-before-page"></div>
           <SubDivider
             title="EnRoutePro 4"
             location="enroutepro.com"
@@ -173,7 +172,7 @@ export default function Samples() {
         </section>
 
         {/* Moonshadow Mobile Section */}
-        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none print:break-before-page">
+        <section className="mb-12 bg-white rounded-lg shadow-md p-8 print:!bg-transparent print:shadow-none print:p-0 print:mb-1 print:rounded-none">
           <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 print:text-sm print:mb-0.5 print:border-b print:border-gray-400 print:pb-0">
             <div className="w-1 h-8 bg-blue-600 rounded print:hidden"></div>
             Moonshadow Mobile, Inc
