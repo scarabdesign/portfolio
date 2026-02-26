@@ -55,7 +55,7 @@ Responsible for design, coding and maintenance of:
 
 **Associate of Applied Science (Computer Programming)**
 Lane Community College | 2007
-GPA: 3.69
+GPA: 3.70
 
 ---
 

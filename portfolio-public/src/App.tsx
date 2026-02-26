@@ -147,7 +147,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start">
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 print:text-[10px] print:font-bold">Associate of Applied Science (Computer Programming)</h3>
-                <p className="text-blue-600 font-medium print:text-black print:text-[9px] print:italic">Lane Community College • GPA: 3.69</p>
+                <p className="text-blue-600 font-medium print:text-black print:text-[9px] print:italic">Lane Community College • GPA: 3.70</p>
               </div>
               <span className="text-slate-600 text-sm md:text-base print:text-[9px]">2007</span>
             </div>
