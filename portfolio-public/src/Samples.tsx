@@ -6,11 +6,12 @@ type SubDividerProps = {
   title: string;
   location: string;
   link?: string;
+  id?: string;
 };
 
-function SubDivider({ children, title, location, link }: SubDividerProps) {
+function SubDivider({ children, title, location, link, id }: SubDividerProps) {
   return (
-    <div className="mb-8 print:mb-2 print:break-inside-avoid">
+    <div id={id} className="mb-8 print:mb-2 print:break-inside-avoid">
       <h3 className="text-2xl font-semibold text-slate-900 mb-2 print:text-[11px] print:font-bold print:mb-0">{title}</h3>
       <div className="h-px bg-slate-300 mb-3 print:mb-0.5"></div>
       <div className="flex items-center gap-2 mb-4 print:mb-0.5">
@@ -57,6 +58,7 @@ export default function Samples() {
           </h2>
 
           <SubDivider
+            id="erpc"
             title="EnRoutePro Cloud"
             location="enroutepro.com"
             link="https://www.enroutepro.com/"
@@ -79,6 +81,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="erp4"
             title="EnRoutePro 4"
             location="enroutepro.com"
             link="https://www.enroutepro.com/"
@@ -111,6 +114,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="fireanimations"
             title="Active Fire Animations"
             location="enroutepro.com"
             link="https://www.enroutepro.com/"
@@ -140,6 +144,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="erp3"
             title="EnRoutePro 3"
             location="enroutepro.com"
             link="https://www.enroutepro.com/"
@@ -179,6 +184,7 @@ export default function Samples() {
           </h2>
 
           <SubDivider
+            id="db4iot"
             title="DB4IoT"
             location="moonshadowmobile.com"
             link="https://moonshadowmobile.com/"
@@ -207,6 +213,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="votermapping"
             title="VoterMapping"
             location="moonshadowmobile.com"
             link="https://moonshadowmobile.com/company/examples/"
@@ -232,6 +239,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="groundgame"
             title="Ground Game"
             location="moonshadowmobile.com"
             link="https://moonshadowmobile.com/company/examples/"
@@ -268,6 +276,7 @@ export default function Samples() {
           </p>
 
           <SubDivider
+            id="viands"
             title="Viands"
             location="github.com/scarabdesign/Viands"
             link="https://github.com/scarabdesign/Viands"
@@ -296,6 +305,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="chess"
             title="Chess"
             location="chess.pointlesswaste.com"
             link="https://chess.pointlesswaste.com"
@@ -324,6 +334,7 @@ export default function Samples() {
           </SubDivider>
 
           <SubDivider
+            id="mailtrash"
             title='MailTrash'
             location='pointlesswaste.com'
             link='https://pointlesswaste.com'
