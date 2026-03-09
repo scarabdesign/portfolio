@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pointlesswaste-redirect-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://seanhankins.com/samples"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - pointlesswaste.com
+    - www.pointlesswaste.com
+    secretName: pointlesswaste-redirect-tls-cert
+  rules:
+  - host: pointlesswaste.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-public
+            port:
+              number: 80
+  - host: www.pointlesswaste.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-public
+            port:
+              number: 80

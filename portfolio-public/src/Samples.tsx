@@ -336,8 +336,8 @@ export default function Samples() {
           <SubDivider
             id="mailtrash"
             title='MailTrash'
-            location='pointlesswaste.com'
-            link='https://pointlesswaste.com'
+            location='mailtrash.pointlesswaste.com'
+            link='https://mailtrash.pointlesswaste.com'
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
               <div className="lg:col-span-2 print:col-span-1">
