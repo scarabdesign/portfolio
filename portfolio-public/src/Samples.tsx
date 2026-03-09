@@ -362,6 +362,48 @@ export default function Samples() {
             </div>
           </SubDivider>
 
+          <SubDivider
+            id="yana"
+            title="Yet Another News App"
+            location="yana.pointlesswaste.com"
+            link="https://yana.pointlesswaste.com"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-2 print:col-span-1">
+                <img src="/resources/YanaScreen.png" className="w-1/2 rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="Yet Another News App" />
+              </div>
+              <div className="print:col-span-2">
+                <p className="mb-4 print:mb-1">
+                  A news aggregator that pulls articles from NewsAPI and presents them in a clean, browsable interface. Features user authentication and session management.
+                </p>
+                <p>
+                  Built with an Angular 21 frontend styled with Tailwind CSS, a Node.js/Fastify backend, and SQLite for data persistence.
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
+          <SubDivider
+            id="ytgetter"
+            title="YT Getter"
+            location="ytgetter.pointlesswaste.com"
+            link="https://ytgetter.pointlesswaste.com/login"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-2 print:col-span-1">
+                <img src="/resources/YtGetterScreen.png" className="w-1/2 rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="YT Getter" />
+              </div>
+              <div className="print:col-span-2">
+                <p className="mb-4 print:mb-1">
+                  A web interface for downloading YouTube videos and music using yt-dlp. Features smart title parsing into artist/title components, quality and format selection, real-time download progress tracking, and an existing music library matcher.
+                </p>
+                <p>
+                  Built with Python/Flask on the backend and vanilla HTML/CSS/JavaScript on the frontend, with bcrypt-based user authentication.
+                </p>
+              </div>
+            </div>
+          </SubDivider>
+
         </section>
       </main>
 
