@@ -9,6 +9,14 @@ export default function Nav() {
     { href: 'https://seanhankins.com/samples', label: 'Sample Portfolio' },
   ];
 
+  const downloadPdf = () => {
+    const isSamples = window.location.pathname.includes('/samples');
+    const url = isSamples
+      ? 'https://seanhankins.com/Samples_Sean_Hankins.pdf'
+      : 'https://seanhankins.com/Resume_Sean_Hankins.pdf';
+    window.open(url);
+  };
+
   const externalLinks = [
     { href: 'https://github.com/scarabdesign', label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/sean-hankins/', label: 'LinkedIn' },
@@ -57,7 +65,7 @@ export default function Nav() {
               <Printer size={20} />
             </button>
             <button
-              onClick={() => window.open('https://seanhankins.com/Resume_Sean_Hankins.pdf')}
+              onClick={downloadPdf}
               className="p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white transition"
               title="Download PDF"
             >
@@ -75,7 +83,7 @@ export default function Nav() {
               <Printer size={20} />
             </button>
             <button
-              onClick={() => window.open('https://seanhankins.com/Resume_Sean_Hankins.pdf')}
+              onClick={downloadPdf}
               className="p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white transition"
               title="Download PDF"
             >

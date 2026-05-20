@@ -7,7 +7,7 @@ export default function App() {
       <header className="bg-slate-900 text-white py-16 px-6 print:!bg-transparent print:text-black print:py-1 print:border-b print:border-black">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 print:text-2xl print:mb-0.5">Sean J. Hankins</h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-6 print:text-base print:text-black print:mb-0.5">Computer Programmer</p>
+          <p className="text-xl md:text-2xl text-slate-300 mb-6 print:text-base print:text-black print:mb-0.5">Senior Full Stack Engineer</p>
           
           <div className="flex flex-wrap gap-4 text-sm md:text-base print:gap-2 print:text-[9px] print:leading-tight">
             <a href="mailto:scarabdesign@gmail.com" className="flex items-center gap-2 hover:text-slate-300 transition print:text-black">
@@ -59,15 +59,15 @@ export default function App() {
               </div>
               <p className="text-slate-700 mb-3 print:text-[9px] print:mb-1">Responsible for design, coding and maintenance of:</p>
               <ul className="list-disc list-inside text-slate-700 space-y-2 print:text-[9px] print:space-y-0 print:leading-tight">
+                <li>Modernized legacy platform from .NET Framework 4.7.2 to .NET 10, consolidating 63 projects across 19 solutions into an 11-project architecture, reducing codebase complexity by 83% (.NET Aspire, Docker, PostgreSQL)</li>
+                <li>Decomposed monolithic 6,700-line API handler into 38 RESTful controllers with OpenAPI documentation, increased async coverage from 8% to 37%, and grew test coverage ~30x to over 200 test files comprising 3,435 passing test cases (xUnit, Playwright, Jest)</li>
+                <li>Migrated from Windows Server/IIS/SQL Server to Linux containers with PostgreSQL and PostGIS, eliminating proprietary database licensing costs and enabling deployment on minimal infrastructure (Docker, EF Core, PostGIS)</li>
+                <li>Replaced custom WebSocket implementation with SignalR hubs supporting 200K+ concurrent connections, added structured logging and distributed tracing (Serilog, Seq, OpenTelemetry)</li>
+                <li>AI-native development with Claude Code as a daily partner across architecture, code migration, automated test generation, refactoring, and documentation, with disciplined review and CI gates that treat AI output the same as any other contributor's</li>
                 <li>A suite of mobile applications to support fire fighters and first-responders in the field (Xamarin/MAUI: Android/iOS/Windows)</li>
                 <li>An extensive WebSocket / RESTful API to support the mobile suite with live emergency incident data and tracking (C#, .NET)</li>
                 <li>A Web based interface for higher level aspects of managing personnel and apparatus of fire/medical agencies (ASP.NET MVC)</li>
                 <li>API tools for downloading and parsing third party wildfire/hotspot datasets for on-map visualization (Python, C#, others)</li>
-                <li>Modernized legacy platform from .NET Framework 4.7.2 to .NET 10, consolidating 63 projects across 19 solutions into an 11-project architecture, reducing codebase complexity by 83% (.NET Aspire, Docker, PostgreSQL)</li>
-                <li>Decomposed monolithic 6,700-line API handler into 38 RESTful controllers with OpenAPI documentation, increased async coverage from 8% to 37%, and grew test coverage 31x (7 → 217 test files) (xUnit, Playwright, Jest)</li>
-                <li>Migrated from Windows Server/IIS/SQL Server to Linux containers with PostgreSQL and PostGIS, eliminating proprietary database licensing costs and enabling deployment on minimal infrastructure (Docker, EF Core, PostGIS)</li>
-                <li>Replaced custom WebSocket implementation with SignalR hubs supporting 200K+ concurrent connections, added structured logging and distributed tracing (Serilog, Seq, OpenTelemetry)</li>
-                <li>Leveraged AI-assisted development (Claude Code) to accelerate platform modernization, including automated test generation, code migration, architectural refactoring, and documentation</li>
               </ul>
             </div>
 
@@ -86,7 +86,7 @@ export default function App() {
               <p className="text-slate-700 mb-3 print:text-[9px] print:mb-1">Responsible for designing, coding and troubleshooting:</p>
               <ul className="list-disc list-inside text-slate-700 space-y-2 print:text-[9px] print:space-y-0 print:leading-tight">
                 <li>Custom e-commerce APIs for enterprise clients using C#, with Docker, K8s, Azure DevOps and Azure Functions</li>
-                <li>Developing connection APIs for OData services, including SAP Concur and Epicore E10/11 and P21</li>
+                <li>Developed connection APIs for OData services, including SAP Concur, Epicor E10/11, and P21</li>
                 <li>Project documentation and client communication</li>
               </ul>
             </div>
@@ -125,7 +125,7 @@ export default function App() {
               </div>
               <p className="text-slate-700 mb-3 print:text-[9px] print:mb-1">Responsible for design, coding and maintenance of:</p>
               <ul className="list-disc list-inside text-slate-700 space-y-2 print:text-[9px] print:space-y-0 print:leading-tight">
-                <li>Complex web application interfaces focusing on big data visualization and IoT (JavaScript, HTML, Node.js, Bing Maps, Google Maps, OpenStreetMap)</li>
+                <li>Complex web application interfaces for DB4IoT, a patented cloud-based geospatial analytics platform visualizing tens of thousands of moving objects and hundreds of millions of records (JavaScript, HTML, Node.js, Bing Maps, Google Maps, OpenStreetMap)</li>
                 <li>A multi-platform mobile application that communicates to vehicles with OBD2 and tracks location (Python, Node.js)</li>
                 <li>Complex web application interfaces and API focusing on voter data, walking list creation and data analytics (JavaScript/jQuery)</li>
                 <li>iOS applications used to view, gather, map and synchronize data with system servers while mobile (Objective C)</li>
@@ -169,7 +169,7 @@ export default function App() {
                 Languages
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['C# / .NET', 'JavaScript', 'HTML/CSS', 'Python', 'Java', 'PHP'].map(skill => (
+                {['C# / .NET', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Python', 'Go', 'Java'].map(skill => (
                   <li key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[9px] print:leading-tight">
                     {skill}
                   </li>
@@ -183,7 +183,7 @@ export default function App() {
                 Platforms
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['jQuery', 'Node.js', 'ASP.NET', 'React', 'Android', 'iOS'].map(skill => (
+                {['ASP.NET Core', 'React', '.NET MAUI', 'SignalR', 'Blazor', 'Node.js', 'OpenTelemetry', 'Android', 'iOS'].map(skill => (
                   <li key={skill} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[9px] print:leading-tight">
                     {skill}
                   </li>
@@ -197,7 +197,7 @@ export default function App() {
                 Storage
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['MSSQL', 'SQLite', 'PostgreSQL', 'MySQL', 'AWS', 'Azure', 'MongoDB', 'Redis'].map(skill => (
+                {['MSSQL', 'PostgreSQL', 'PostGIS', 'SQLite', 'MySQL', 'MongoDB', 'Redis', 'Azure', 'AWS'].map(skill => (
                   <li key={skill} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[9px] print:leading-tight">
                     {skill}
                   </li>
@@ -211,7 +211,7 @@ export default function App() {
                 Tools & OS
               </h3>
               <ul className="flex flex-wrap gap-2 print:block print:list-disc print:list-inside print:m-0 print:p-0">
-                {['Visual Studio', 'Rider', 'VS Code', 'Git', 'Jira', 'Linux', 'Windows', 'Mac', 'Claude', 'ChatGPT'].map(skill => (
+                {['Visual Studio', 'Rider', 'VS Code', 'Git', 'Docker', 'Kubernetes', 'Helm', 'Linux', 'Claude Code', 'Azure DevOps'].map(skill => (
                   <li key={skill} className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm print:!bg-transparent print:text-black print:px-0 print:py-0 print:text-[9px] print:leading-tight">
                     {skill}
                   </li>
@@ -225,7 +225,7 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 px-6 mt-12 print:hidden">
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-slate-400">© 2025 Sean J. Hankins. All rights reserved.</p>
+          <p className="text-slate-400">© 2026 Sean J. Hankins. All rights reserved.</p>
         </div>
       </footer>
     </div>

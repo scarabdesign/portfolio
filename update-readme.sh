@@ -108,6 +108,9 @@ PLATFORMS=$(echo "$DATA" | node -pe "JSON.parse(fs.readFileSync(0)).platforms")
 STORAGE=$(echo "$DATA" | node -pe "JSON.parse(fs.readFileSync(0)).storage")
 TOOLS=$(echo "$DATA" | node -pe "JSON.parse(fs.readFileSync(0)).tools")
 
+EDU_GPA=$(echo "$DATA" | node -pe "JSON.parse(fs.readFileSync(0)).education.gpa || ''")
+EDU_YEAR=$(echo "$DATA" | node -pe "JSON.parse(fs.readFileSync(0)).education.year || ''")
+
 echo "Found data:"
 echo "  Name: $NAME"
 echo "  Email: $EMAIL"
@@ -150,8 +153,8 @@ cat >> "${README_FILE}.tmp" << EOF
 ## Education
 
 **Associate of Applied Science (Computer Programming)**
-Lane Community College | 2007
-GPA: 3.69
+Lane Community College | ${EDU_YEAR}
+GPA: ${EDU_GPA}
 
 ---
 
