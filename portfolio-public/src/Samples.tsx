@@ -276,6 +276,27 @@ export default function Samples() {
           </p>
 
           <SubDivider
+            id="locutus"
+            title="Locutus"
+            location="Read the full technical write-up on LinkedIn"
+            link="https://www.linkedin.com/pulse/we-locutus-self-hosted-voice-from-obsolete-silicon-sean-hankins-r214c"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3 print:gap-3">
+              <div className="lg:col-span-1 print:col-span-1">
+                <img src="/resources/LocutusScreen.png" className="w-full rounded shadow-lg print:shadow-none print:rounded-none print:max-w-[150px]" alt="Locutus" />
+              </div>
+              <div className="lg:col-span-2 print:col-span-2">
+              <p className="mb-4 print:mb-1">
+                Locutus is a self-hosted, voice-controlled AI assistant that replaced Alexa in my house, running entirely on a 2012 Mac mini I pulled out of a closet. Voice commands flow through a five-tier intent cascade: a deterministic keyword parser handles the simple stuff instantly, a locally trained DistilBERT classifier exported to ONNX resolves most of the rest in about 50ms, two quantized Qwen models escalate for harder phrasing, and the Claude API is the final fallback. Around 80% of commands never leave the house. When one does reach Claude, it returns training hints to the local models, so the same request is handled locally next time and stops costing anything.
+              </p>
+              <p>
+                The remote nodes are ASUS Tinker Boards running local wake-word detection on armv7l — which meant extracting the STFT and mel filterbank weights from the ONNX model and reimplementing that stage in pure numpy after TensorFlow Lite refused to run it. Audio streams to the hub over a custom Opus transport at a fraction of the bandwidth of raw PCM. The hub is a FastAPI application serving the voice pipeline, a ~25,000 track library through Mopidy, and a metadata enrichment pipeline built on AcoustID, MusicBrainz, Last.fm, and Essentia. Each satellite has custom RGB LED hardware driven over SPI that reflects the state of the voice pipeline.
+              </p>
+              </div>
+            </div>
+          </SubDivider>
+
+          <SubDivider
             id="viands"
             title="Viands"
             location="github.com/scarabdesign/Viands"

@@ -1,0 +1,64 @@
+We Are Locutus: Self-Hosted Voice From Obsolete Silicon
+
+Sean Hankins
+Senior Software Developer | Application Programmer | Full-Stack Developer | C#/.NET | React | AI-Augmented Engineering
+
+Published April 21, 2026
+Source: https://www.linkedin.com/pulse/we-locutus-self-hosted-voice-from-obsolete-silicon-sean-hankins-r214c
+
+---
+
+This project was originally inspired by the blog post of a former co-worker of mine, Shawna, who had a bricked 2013 Mac mini and decided to turn it into her dev stack. She wrote it up under the title "My Dev Stack Has No Landlord", and the phrase stuck with me. I had two Mac minis of my own sitting in a closet; a late 2012 and a late 2014, the latter of which was sorely lacking in RAM, but had a harvestable SSD. So I "Borg'd" them together for my purposes.
+
+For my project, I wanted a dedicated home media server. Casual music is usually played here via Alexa Dot streaming Spotify, but I had an under-utilized local MP3 collection that contains some good live and rare music. I like having a voice-controlled music system but wanted something extendable that kept working when the internet didn't, and that didn't ship my living room's ambient noise to a third party.
+
+So, with the help of Claude Code, I researched what it would take to make something like this; an in-home personal DJ that responded to voice commands. Given the limitation of this machine, my options were thus limited. A large LLM model would tax the system heavily, making request turn-around way longer than I liked. On the other hand, a model that was too small would not give me the ability to make complex or nuanced requests when I wanted to. My resolution for this problem was to use them all; a tiered system that would take care of most simple requests within milliseconds, and would hand low confidence responses up to the next tier.
+
+Another aspect of getting this off the ground was putting in a wakeword with OpenWakeWord. This was going to be the ears of the system; when you speak it's name aloud, it should respond to you. I needed a phrase distinct enough that ordinary speech wouldn't trigger it. Given the Borg theme was already in the air, Locutus was my pick, meaning "one who has spoken" in Latin. I envisioned Patrick Stewart's baritone delivery, responding to commands with "Yes, my queen," and gave the text-to-speech (TTS) voice a close approximation.
+
+The hub
+
+Locutus lives on a 2012 Mac mini: Intel i5-3210M, 16 GB RAM, no AVX2 (!), a detail that kept me from using faster-whisper and shaped a lot of downstream choices. It serves a FastAPI app that owns the voice pipeline, music dispatch, and a web UI.
+
+Voice input flows through a five-tier intent cascade:
+
+T0: deterministic keyword parser, handles pause/stop/skip/volume instantly
+T1: DistilBERT ONNX (~50 ms), entity extraction with database validation
+T2: Qwen 2.5 1.5B via llama-server (~2-5 s), for phrasing T1 couldn't handle
+T3: Qwen 2.5 3B (~8 s), when T2's confidence drops
+T4: Claude Haiku (network call, with library candidates provided as context), and Claude Sonnet for post-failure reinterpretation
+
+The whole point of the cascade is that ~80% of commands never leave the house. Claude is a last resort, not a default, and when it is invoked, it not only determines the correct intent, but is able to drop training hints to the other models so that the next time this command is requested it doesn't come back to Claude.
+
+The music side
+
+Behind the voice pipeline, ~25,000 tracks live on a USB drive, served through Mopidy. There's a metadata enrichment pipeline (AcoustID > MusicBrainz > Last.fm > Essentia) that writes BPM, mood, key, and genre to an SQLite cache so the LLM tiers can answer "play something funky" without round-tripping anywhere.
+
+Spotify is the fallback when something isn't in the local library. The old spotifyd got replaced by librespot driven by --onevent callbacks. No HTTP polling; state changes are pushed over WebSocket. And because PulseAudio tunnel streams were too jittery at Wi-Fi distance, I eventually built a continuous Opus stream transport (128 kbps) between Locutus and its satellites, using 11 times less bandwidth than raw PCM, playlist pre-caching, with stream-first playback for un-cached tracks.
+
+The satellites
+
+The remote nodes are called Auditus ("one who listens"), running on ASUS Tinker Boards (RK3288, 2 GB RAM, armv7l) with DietPi OS. These I had been sitting on for some time, trying to decide what to do with them. The limited 32 bit processors restricted my options. It was fun pulling them out again and rediscovering the Makers' joy. Each one does wakeword detection locally, captures commands, responds with TTS, and plays back music. Heavy computing happens on Locutus.
+
+Getting wakeword inference running on armv7l was the fun part. The OpenWakeWord model has three stages: mel spectrogram > embedding > detector. TFLite's mel spectrogram op refused to run on armv7l, so I extracted the Short-Time Fourier Transform (STFT) and mel filterbank weights from the ONNX model and reimplemented that stage in pure numpy. The result scores identically to the full OpenWakeWord pipeline on the hub (max difference: 0.000015), and runs in real time.
+
+After initially getting this working on the satellites, I noticed the main client was hitting 97% CPU because the wakeword detection loop, asyncio event loop, and mpv were all contending for the same cores. So, I split wakeword into its own process with CPU affinity pinned to core 0. Main process dropped to 5%.
+
+Another problem I had to deal with was the false positives for wakeword and the misinterpretation of my commands, which were processed by Whisper, OpenAI's open-source speech-to-text model. To help clarify the commands, I am processing the incoming raw mic feed to isolate voice for clarity and reduce ambient noise levels, removing background sounds, hissing and feedback.
+
+The satellites have custom hardware on top of the base board: 4010 RGB PWM fans with a WS2812 LED in the hub, driven over SPI2 at 6.4 MHz. Three discrete front LEDs on the Tinker itself show connection state and music-playing status. The fans' LED reflects voice-pipeline state (idle/thinking/speaking), and each satellite has its own idle color. The voice response is synced from the server as a WAV file, which gets it's volume levels converted to visible LED flashes that make it feel like it's really speaking.
+
+So, now when I want to play something:
+
+I trigger the wakeword: "Locutus."
+The satellites responds: "Yes, my queen."
+I make my request: "Play live String Cheese Incident."
+... A moment later: "Playing String Cheese Incident live."
+Or if I request: "Play music for a dinner party."
+... It sometimes responds: "Working on it," and 50 songs are queued.
+
+Next Chapter
+
+The TODO list is still pretty long. It consists of a satellite specific web interface to assist with Wi-Fi and Bluetooth connections, and perhaps a local web interface that will let me view/play cached tracks. Then, when I finally figure out the battery solution, I can load up many tracks and bring the tiny Auditus instance on the road... or offroad!
+
+I'm currently un-bricking a Kindle Paperwhite (or, Paperweight, as it were) with the intent of running an interface for the DJ from it as well. "Ditio", maybe? We'll see where that goes.
